@@ -1,0 +1,545 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "mapLabelId": "1560",
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "ACAD SENATE OFC",
+                "fontSize": null,
+                "category": "Label",
+                "location": "Default",
+                "partialPath": "Information",
+                "showOnCreation": false,
+                "type": "IconWithText",
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": "",
+                "base64": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.58123779296875,
+                    39.045143127441406
+                ]
+            },
+            "user_properties": {}
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mapLabelId": "1551",
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "STORAGE RM",
+                "fontSize": null,
+                "category": "Label",
+                "location": "Default",
+                "partialPath": "Information",
+                "showOnCreation": false,
+                "type": "IconWithText",
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": "",
+                "base64": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.58123779296875,
+                    39.045143127441406
+                ]
+            },
+            "user_properties": {}
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mapLabelId": "1559",
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "STAFF OFC",
+                "fontSize": null,
+                "category": "Label",
+                "location": "Default",
+                "partialPath": "Information",
+                "showOnCreation": false,
+                "type": "IconWithText",
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": "",
+                "base64": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.58123779296875,
+                    39.045143127441406
+                ]
+            },
+            "user_properties": {}
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mapLabelId": "1561",
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "STORAGE",
+                "fontSize": null,
+                "category": "Label",
+                "location": "Default",
+                "partialPath": "Information",
+                "showOnCreation": false,
+                "type": "IconWithText",
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": "",
+                "base64": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.58123779296875,
+                    39.045143127441406
+                ]
+            },
+            "user_properties": {}
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mapLabelId": "1562",
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "STORAGE",
+                "fontSize": null,
+                "category": "Label",
+                "location": "Default",
+                "partialPath": "Information",
+                "showOnCreation": false,
+                "type": "IconWithText",
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": "",
+                "base64": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.58123779296875,
+                    39.045143127441406
+                ]
+            },
+            "user_properties": {}
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mapLabelId": "1567",
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "JAN. CL.",
+                "fontSize": null,
+                "category": "Label",
+                "location": "Default",
+                "partialPath": "Information",
+                "showOnCreation": false,
+                "type": "IconWithText",
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": "",
+                "base64": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.58123779296875,
+                    39.045143127441406
+                ]
+            },
+            "user_properties": {}
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mapLabelId": "1563",
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "ENTRY",
+                "fontSize": null,
+                "category": "Label",
+                "location": "Default",
+                "partialPath": "Information",
+                "showOnCreation": false,
+                "type": "IconWithText",
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": "",
+                "base64": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.58123779296875,
+                    39.045143127441406
+                ]
+            },
+            "user_properties": {}
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mapLabelId": "1564",
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "CORR 1",
+                "fontSize": null,
+                "category": "Label",
+                "location": "Default",
+                "partialPath": "Information",
+                "showOnCreation": false,
+                "type": "IconWithText",
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": "",
+                "base64": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.58123779296875,
+                    39.045143127441406
+                ]
+            },
+            "user_properties": {}
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mapLabelId": "1565",
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "CORR 2",
+                "fontSize": null,
+                "category": "Label",
+                "location": "Default",
+                "partialPath": "Information",
+                "showOnCreation": false,
+                "type": "IconWithText",
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": "",
+                "base64": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.58123779296875,
+                    39.045143127441406
+                ]
+            },
+            "user_properties": {}
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mapLabelId": "1573",
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "STAIR A",
+                "fontSize": null,
+                "category": "Label",
+                "location": "Default",
+                "partialPath": "Information",
+                "showOnCreation": false,
+                "type": "IconWithText",
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": "",
+                "base64": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.58123779296875,
+                    39.045143127441406
+                ]
+            },
+            "user_properties": {}
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mapLabelId": "1574",
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "STAIR B",
+                "fontSize": null,
+                "category": "Label",
+                "location": "Default",
+                "partialPath": "Information",
+                "showOnCreation": false,
+                "type": "IconWithText",
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": "",
+                "base64": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.58123779296875,
+                    39.045143127441406
+                ]
+            },
+            "user_properties": {}
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mapLabelId": "1557",
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "OFC",
+                "fontSize": null,
+                "category": "Label",
+                "location": "Default",
+                "partialPath": "Information",
+                "showOnCreation": false,
+                "type": "IconWithText",
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": "",
+                "base64": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.58123779296875,
+                    39.045143127441406
+                ]
+            },
+            "user_properties": {}
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mapLabelId": "1547",
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "CLASSROOM",
+                "fontSize": null,
+                "category": "Label",
+                "location": "Default",
+                "partialPath": "Information",
+                "showOnCreation": false,
+                "type": "IconWithText",
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": "",
+                "base64": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.58123779296875,
+                    39.045143127441406
+                ]
+            },
+            "user_properties": {}
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mapLabelId": "1548",
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "CLASSROOM",
+                "fontSize": null,
+                "category": "Label",
+                "location": "Default",
+                "partialPath": "Information",
+                "showOnCreation": false,
+                "type": "IconWithText",
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": "",
+                "base64": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.58123779296875,
+                    39.045143127441406
+                ]
+            },
+            "user_properties": {}
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mapLabelId": "1549",
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "YOGA STUDIO",
+                "fontSize": null,
+                "category": "Label",
+                "location": "Default",
+                "partialPath": "Information",
+                "showOnCreation": false,
+                "type": "IconWithText",
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": "",
+                "base64": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.58123779296875,
+                    39.045143127441406
+                ]
+            },
+            "user_properties": {}
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mapLabelId": "1550",
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "STORAGE CL",
+                "fontSize": null,
+                "category": "Label",
+                "location": "Default",
+                "partialPath": "Information",
+                "showOnCreation": false,
+                "type": "IconWithText",
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": "",
+                "base64": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.58123779296875,
+                    39.045143127441406
+                ]
+            },
+            "user_properties": {}
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mapLabelId": "1552",
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "DIRECTOR'S OFC",
+                "fontSize": null,
+                "category": "Label",
+                "location": "Default",
+                "partialPath": "Information",
+                "showOnCreation": false,
+                "type": "IconWithText",
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": "",
+                "base64": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.58123779296875,
+                    39.045143127441406
+                ]
+            },
+            "user_properties": {}
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mapLabelId": "1553",
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "OPEN OFC",
+                "fontSize": null,
+                "category": "Label",
+                "location": "Default",
+                "partialPath": "Information",
+                "showOnCreation": false,
+                "type": "IconWithText",
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": "",
+                "base64": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.58123779296875,
+                    39.045143127441406
+                ]
+            },
+            "user_properties": {}
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mapLabelId": "1554",
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "ASS'T DIR'S OFC",
+                "fontSize": null,
+                "category": "Label",
+                "location": "Default",
+                "partialPath": "Information",
+                "showOnCreation": false,
+                "type": "IconWithText",
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": "",
+                "base64": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.58123779296875,
+                    39.045143127441406
+                ]
+            },
+            "user_properties": {}
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mapLabelId": "1555",
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "FILE RM",
+                "fontSize": null,
+                "category": "Label",
+                "location": "Default",
+                "partialPath": "Information",
+                "showOnCreation": false,
+                "type": "IconWithText",
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": "",
+                "base64": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.58123779296875,
+                    39.045143127441406
+                ]
+            },
+            "user_properties": {}
+        }
+    ]
+}

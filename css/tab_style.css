@@ -1,0 +1,152 @@
+/* Style the tab */
+
+div.tab {
+	position: absolute;
+	left: 50px;
+	bottom: 50px;
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+	width: 350px;
+	height: 400px;
+}
+
+div.contain-list {
+	overflow-x: hidden;
+	overflow-y: scroll;
+	width: 105%;
+	height: 360px;
+	padding-right: 17px;
+	box-sizing: content-box;
+}
+
+/* Style the buttons that are used to open the tab content */
+
+.tab button {
+	background-color: inherit;
+	display: block;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	border-bottom: 1px solid gray;
+	width: 100%;
+}
+
+/* Change background color of buttons on hover */
+
+.tab button:hover {
+	background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+
+.tab button.active {
+	background-color: #ccc;
+}
+
+/* Style the tab content */
+
+.tabcontent {
+	display: none;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-top: none;
+}
+
+/*
+div.filter {
+	height: 30px;
+	border: thin solid #ccc;
+	border-radius: 3px;
+	margin: 3px;
+	background-color: #fff;
+	padding: 3px;
+}
+*/
+
+input.filter {
+	float: left;
+    box-sizing: border-box;
+    width: 300px;
+	height: 32px;
+    padding: 3px 20px;
+    border: thin solid #ccc;
+    border-right: none;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+    margin: 3px 0px 3px 3px;
+    font-size: 17px;
+}
+
+.tab button {
+	float: left;
+	padding: 6px 10px ;
+    margin: 3px 3px 3px 0px;
+	background: #ddd;
+	font-size: 17px;
+    border: thin solid #ccc;
+    border-left: none;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	cursor: pointer;
+	width: 40px;
+	height: 32px;
+}
+
+.tab button:hover {
+	background: #ccc;
+}
+
+ul.list-group {
+	margin: 3px;
+}
+
+li.list-group-item {
+	font-weight: bold;
+	padding: 0px ;
+	cursor: pointer;
+	height: 35px;
+}
+
+li.list-group-item:hover {
+
+}
+
+li.seen {
+	color: #666;
+}
+
+.li-col {
+	display: inline-block;
+	white-space: nowrap;
+	display: inline-block;
+	float: left;
+	border: none;
+	text-align: left;
+	margin-top: 6px;
+}
+
+.li-col span {
+	margin: 20px;
+}
+
+.li-label {
+	width: 180px;
+}
+
+.li-bldg {
+	border-left: thin solid #ccc;
+	border-right: thin solid #ccc;
+	width: 70px;
+}
+
+.li-room {
+	float: right;
+}
+
+
+
+
+
