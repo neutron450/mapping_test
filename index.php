@@ -9,7 +9,8 @@
   <script src="TemplateData/js/jquery-2.2.4.min.js"></script>
   <script src="TemplateData/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
   <script src="js/demo-ui.js"></script>
 
@@ -44,7 +45,17 @@
 
         <div class="tab points" style="pointer-events: all">
         	<!--<div class="filter" contenteditable="true">filter</div>-->
-        	<input type="text" class="filter" placeholder="Search..">
+
+			<div class="selectdiv ">
+			  <label>
+				  <select class="menu-buildings">
+					  <option value="">:: Select Building ::</option>
+				  </select>
+			  </label>
+			</div>
+
+
+        	<input type="text" class="filter" placeholder="">
         	<button><i class="fa fa-search"></i></button>
         	<br clear="all">
         	<div class="contain-list">
@@ -103,14 +114,35 @@
 		searchFunction();
 	});
 
+	$(document).on("change", "select.menu-buildings", function(e){
+		//alert(this.value);
+		searchFunction();
+	});
+
 	function searchFunction () {
 		var filter = $("input.filter").val();
-		console.log(filter);
+		//console.log(filter);
 		//$(".list-group-item").not(":containsIgnoreCase('" + filter + "')").addClass("hidden");
 		//$(".list-group-item:containsIgnoreCase('" + filter + "')").removeClass("hidden");
 		$(".list-group-item").not(":containsi('" + filter + "')").addClass("hidden");
 		$(".list-group-item:containsi('" + filter + "')").removeClass("hidden");
+
+		var building = $("select.menu-buildings").val();
+
+		if(building != "") {
+
+			//alert(building);
+
+			// 	if ($(".list-group-item").attr('data-building') != building) {
+			// 		$(".list-group-item").addClass("hidden");
+			// 	}
+
+			$(".list-group-item[data-building!='"+building+"']").addClass("hidden");
+
+		}
+
 	}
+
 	//$("#search").on("keyup", $.debounce(searchFunction, 300));
 	//$(document).on("keyup", "input.filter", $.debounce(searchFunction, 300));
 

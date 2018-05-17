@@ -142,9 +142,96 @@ li.seen {
 	width: 70px;
 }
 
-.li-room {
-	float: right;
+/* custom select menu styles */
+
+/*
+select {
+  margin: 3px;
+  width: 342px;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /*background: url(http://www.stackoverflow.com/favicon.ico) 96% / 15% no-repeat #eee;*/
 }
+
+/* CAUTION: IE hackery ahead */
+/*
+select::-ms-expand {
+    display: none; /* remove default arrow on ie10 and ie11 */
+}
+
+/* target Internet Explorer 9 to undo the custom arrow */
+/*
+@media screen and (min-width:0\0) {
+    select {
+        background:none\9;
+        padding: 5px\9;
+    }
+}
+*/
+
+/*
+body {
+  background: #f2f2f2;
+}
+ */
+
+.selectdiv {
+	float: left;
+	min-width: 200px;
+	margin: 0px;
+}
+
+.selectdiv label {
+	display: inline;
+}
+
+.selectdiv:after {
+    content: '\f078';
+    font: normal normal normal 17px/1 FontAwesome;
+    color: #ccc;
+    right: 11px;
+    top: 6px;
+    height: 29px;
+    padding: 5px 0px 0px 8px;
+    border-left: 1px solid #ccc;
+    position: absolute;
+    pointer-events: none;
+}
+
+/* IE11 hide native button (thanks Matt!) */
+select::-ms-expand {
+	display: none;
+}
+
+.selectdiv select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	/* Add some styling */
+
+	display: block;
+	width: 98%;
+	margin: 3px;
+
+	height: 32px;
+    padding: 3px 16px;
+
+	font-size: 16px;
+	line-height: 1.75;
+	color: #333;
+	background-color: #ffffff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	-ms-word-break: normal;
+	word-break: normal;
+}
+
 
 
 
