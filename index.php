@@ -26,7 +26,7 @@
 <body style="pointer-events: none">
   <div id="bootstrap" hidden>
     <div class="container-fluid" style="z-index:100;">
-      <!--<div class="row">
+      <div class="row">
         <div style="pointer-events: all">
           <div id="levels-dropdown" class="dropdown floor-selector">
             <button id="#levels-dropdown-button" onclick="dropdownClicked();" class="btn btn-default dropdown-toggle ui-item" type="button" aria-haspopup="true" aria-expanded="true">
@@ -39,9 +39,25 @@
           </div>
 
         </div>
-      </div>-->
+      </div>
       <div class="row">
       <!--***Place Tab HTML Here***-->
+
+
+<ul id="floorContainer" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+<li id="floorListTemplate" class="">
+<a class="floorName" href="#">Exterior</a>
+</li><li id="floorListTemplate" class="">
+<a class="floorName" href="#">SecondFloor</a>
+</li><li id="floorListTemplate" class="">
+<a class="floorName" href="#">FirstFloor</a>
+</li><li id="floorListTemplate" class="">
+<a class="floorName" href="#">BasementOne</a>
+</li><li id="floorListTemplate" class="">
+<a class="floorName" href="#">BasementTwo</a>
+</li>
+</ul>
+
 
         <div class="tab points" style="pointer-events: all">
         	<!--<div class="filter" contenteditable="true">filter</div>-->
@@ -121,30 +137,13 @@
 
 	function searchFunction () {
 		var filter = $("input.filter").val();
-		//console.log(filter);
-		//$(".list-group-item").not(":containsIgnoreCase('" + filter + "')").addClass("hidden");
-		//$(".list-group-item:containsIgnoreCase('" + filter + "')").removeClass("hidden");
 		$(".list-group-item").not(":containsi('" + filter + "')").addClass("hidden");
 		$(".list-group-item:containsi('" + filter + "')").removeClass("hidden");
-
 		var building = $("select.menu-buildings").val();
-
 		if(building != "") {
-
-			//alert(building);
-
-			// 	if ($(".list-group-item").attr('data-building') != building) {
-			// 		$(".list-group-item").addClass("hidden");
-			// 	}
-
 			$(".list-group-item[data-building!='"+building+"']").addClass("hidden");
-
 		}
-
 	}
-
-	//$("#search").on("keyup", $.debounce(searchFunction, 300));
-	//$(document).on("keyup", "input.filter", $.debounce(searchFunction, 300));
 
 	</script>
 
