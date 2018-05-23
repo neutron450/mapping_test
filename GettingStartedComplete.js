@@ -39,7 +39,8 @@ var onAmbiarcLoaded = function() {
   //load MapLabels from a preprovided map file
   var full = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + (window.location.pathname ? window.location.pathname.substring(0, window.location.pathname.lastIndexOf("/")) : '');
   //ambiarc.loadRemoteMapLabels(full + "/tutorial_map_labels.json").then((out) => {});
-  ambiarc.loadRemoteMapLabels("http://facilities/facilities/fetch").then((out) => {
+  //ambiarc.loadRemoteMapLabels("http://facilities/facilities/fetch").then((out) => {
+  ambiarc.loadRemoteMapLabels("https://map.pratt.edu/facilities/web/facilities/fetch").then((out) => {
 	MapLabels = out;
 	//ambiarc.mapStuff = out;
 	//console.log(ambiarc.mapStuff);
