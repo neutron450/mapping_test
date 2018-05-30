@@ -1,3 +1,20 @@
+<?php
+	session_start();
+	echo __DIR__;
+	include_once('dbtools.inc.php');
+	$obj = new DbTools;
+	if (!$_SESSION['token']) {
+		$obj->createToken();
+	} else {
+		if ($obj->checkToken($_SESSION['token'])) {
+			//is okay
+		} else {
+			echo 'no token';
+		}
+	}
+	//die();
+?>
+
 <html>
 
 <head>
@@ -11,6 +28,10 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <script>
+    	document.token = "<?php echo $_SESSION['token'] ?>";
+    </script>
 
   <script src="js/demo-ui.js"></script>
 
