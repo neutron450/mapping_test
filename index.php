@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	echo __DIR__;
+	//echo __DIR__;
 	include_once('dbtools.inc.php');
 	$obj = new DbTools;
 	if (!$_SESSION['token']) {
