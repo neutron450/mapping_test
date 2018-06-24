@@ -1,0 +1,115 @@
+
+div.nav-menu {
+
+    display: flex;
+
+	position: fixed;
+	top: 45%;
+	left: 0px;
+	overflow: hidden;
+    padding: 5px 20px;
+    align-items: center;
+
+	font-size: 18px;
+	font-weight: bold;
+	font-color: #ccc;
+
+	border: thin solid #ccc;
+	background-color: #fff;
+	height: 50px;
+	width: 150px;
+
+	-webkit-transition: width 1s ease, opacity 1s ease; /* For Safari 3.1 to 6.0 */
+    transition: width 1s ease, opacity 1s ease;
+
+	pointer-events: auto;
+    cursor: pointer;
+
+    z-index: 900;
+}
+
+div.menu-open {
+	left: 0px;
+	width: auto;
+}
+
+
+div.cat-wrap {
+
+    padding: 0px;
+	border: none;
+	background-color: none;
+	height: 50px;
+
+	left: 0px;
+	width: auto;
+	opacity: 1;
+
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    pointer-events: auto;
+
+}
+
+div.menu-category {
+	/*float: left;*/
+	position: relative;
+	/*display: inline-block !important;*/
+	margin: 0px;
+}
+
+span.cat-box {
+	display: block;
+	margin: 15px 25px;
+	pointer-events: auto;
+}
+
+div.fade-out {
+	width: 0px;
+	opacity: 0;
+}
+
+div.flyout {
+	position: fixed;
+	top: 50%;
+	transform: translateY(-50%);
+	/*display: none;*/
+	z-index: 901;
+	background-color: #fff;
+	height: auto;
+	margin: auto 0px;
+	padding: 25px 0px;
+	pointer-events: auto;
+	overflow: hidden;
+
+	width: 0px;
+	opacity: 0;
+
+	-webkit-transition: width 0.5s ease, opacity 0.5s ease; /* For Safari 3.1 to 6.0 */
+    transition: width 0.5s ease, opacity 0.5s ease;
+}
+
+div.reveal-horz {
+	width: auto;
+	opacity: 1;
+
+	-webkit-transition: width 0.5s ease, opacity 0.5s ease; /* For Safari 3.1 to 6.0 */
+    transition: width 0.5s ease, opacity 0.5s ease;
+}
+
+div.flyout span {
+	font-size: 12px;
+	font-weight: bold;
+	margin: 25px;
+	pointer-events: auto;
+}
+
+
+
+
+
+
+

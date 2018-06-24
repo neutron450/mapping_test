@@ -20,11 +20,16 @@
 <head>
   <title>Ambiarc</title>
   <meta charset="UTF-8">
+
   <link rel="stylesheet" media="all" href="TemplateData/css/bootstrap.css" />
   <link rel="stylesheet" media="all" href="css/demo-ui.css" />
   <link rel="stylesheet" media="all" href="css/tab_style.css?nc=<?php echo time(); ?>" />
+  <link rel="stylesheet" media="all" href="css/menu.css?nc=<?php echo time(); ?>" />
+
   <script src="TemplateData/js/jquery-2.2.4.min.js"></script>
   <script src="TemplateData/js/bootstrap.min.js"></script>
+  <script src="js/menu.js?nc=<?php echo time(); ?>"></script>
+
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -45,6 +50,8 @@
 </head>
 
 <body style="pointer-events: none">
+
+
   <div id="bootstrap" hidden>
     <div class="container-fluid" style="z-index:100;">
       <div class="row">
@@ -127,44 +134,48 @@
     Your browser doesn't support iframes
   </iframe>
 
+  <div class="nav-menu menu-open">menu</div>
+
+  <div class="nav-menu cat-wrap fade-out">
+	<div class="menu-category"><span class="cat-box" data-type="buildings">buildings</span></div>
+	<div class="menu-category"><span class="cat-box">academics</span></div>
+	<div class="menu-category"><span class="cat-box">offices</span></div>
+	<div class="menu-category"><span class="cat-box">facilities</span></div>
+	<div class="menu-category"><span class="cat-box">accessibility</span></div>
+  </div>
+
+  <div class="flyout buildings"></div>
+
 	<script>
 
-	$(document).on("click", "li.list-group-item", function(e){
-		console.log(e);
-		var id = $(this).attr('data-id');
-		adjustMapFocus(e.currentTarget, id);
-		//$('.active').removeClass('active');
-		$(this).addClass('seen').siblings().removeClass('active');
+	//$('.menu-open').on('click', function() {
+	$(document).on('click', '.menu-open', function() {
+		//$(this).toggleClass('trans-out');
+		$('.menu-open').addClass('fade-out');
+		$('.cat-wrap').removeClass('fade-out');
+		//$('.menu-open').animate({ opacity: 0, width: '0px' }, 500, function() { // done. });
+		//$('.cat-wrap').animate({ opacity: 1, width: auto }, 500, function() { // Animation complete. });
 	});
 
-	$(document).ready(function(){
-		$.extend($.expr[':'], {
-		  'containsi': function(elem, i, match, array) {
-			return (elem.textContent || elem.innerText || '').toLowerCase()
-				.indexOf((match[3] || "").toLowerCase()) >= 0;
-		  }
-		});
+	$(document).on('click', '.cat-box', function() {
+		var type = $(this).attr('data-type');
+		$('div.'+type).addClass('reveal-horz');
 	});
 
-	$(document).on("keyup", "input.filter", function(e){
-		//alert(this.value);
-		searchFunction();
+	$('div.flyout').mouseleave(function() {
+		$(this).removeClass('reveal-horz');
 	});
 
-	$(document).on("change", "select.menu-buildings", function(e){
-		//alert(this.value);
-		searchFunction();
-	});
-
-	function searchFunction () {
-		var filter = $("input.filter").val();
-		$(".list-group-item").not(":containsi('" + filter + "')").addClass("hidden");
-		$(".list-group-item:containsi('" + filter + "')").removeClass("hidden");
-		var building = $("select.menu-buildings").val();
-		if(building != "") {
-			$(".list-group-item[data-building!='"+building+"']").addClass("hidden");
+	$(document).keyup(function(e) {
+		if (e.keyCode === 27) {
+			//$('.menu-open').animate({ opacity: 1, width: '0px' }, 500, function() { // done. });
+			//$('.cat-wrap').animate({ opacity: 0, width: auto }, 500, function() { // Animation complete. });
+			$('.menu-open').removeClass('fade-out');
+			$('.cat-wrap').addClass('fade-out');
+			//$('.flyout').hide();
+			$('.reveal-horz').removeClass('reveal-horz');
 		}
-	}
+	});
 
 	</script>
 

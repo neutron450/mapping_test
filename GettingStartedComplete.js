@@ -67,13 +67,19 @@ function buildMapMenu(MapLabels){
 	$('ul.list-group').append(joined);
 	//console.log(lBldgs);
 	bOptions = {};
+	catBuildings = {};
 	for (var prop in lBldgs) {
 		bOptions[prop] = '<option value="'+prop+'">'+lBldgs[prop]+'</option>';
+		catBuildings[prop] = '<span>'+lBldgs[prop]+'</span>';
 	}
 	joined = $.map(bOptions, function(e){
 		return e;
 	}).join(' ');
 	$('select.menu-buildings').append(joined);
+	joined = $.map(catBuildings, function(e){
+		return e;
+	}).join('<br>');
+	$('div.buildings').append(joined);
 }
 
 
