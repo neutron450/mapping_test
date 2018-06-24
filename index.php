@@ -54,7 +54,7 @@
 
   <div id="bootstrap" hidden>
     <div class="container-fluid" style="z-index:100;">
-      <div class="row">
+      <!--<div class="row">
         <div style="pointer-events: all">
           <div id="levels-dropdown" class="dropdown floor-selector">
             <button id="#levels-dropdown-button" onclick="dropdownClicked();" class="btn btn-default dropdown-toggle ui-item" type="button" aria-haspopup="true" aria-expanded="true">
@@ -67,11 +67,11 @@
           </div>
 
         </div>
-      </div>
+      </div>-->
       <div class="row">
       <!--***Place Tab HTML Here***-->
 
-
+<!--
 <ul id="floorContainer" class="dropdown-menu" aria-labelledby="dropdownMenu1">
 <li id="floorListTemplate" class="">
 <a class="floorName" href="#">Exterior</a>
@@ -85,7 +85,7 @@
 <a class="floorName" href="#">BasementTwo</a>
 </li>
 </ul>
-
+-->
 
         <div class="tab points" style="pointer-events: all">
         	<!--<div class="filter" contenteditable="true">filter</div>-->
@@ -137,24 +137,30 @@
   <div class="nav-menu menu-open">menu</div>
 
   <div class="nav-menu cat-wrap fade-out">
-	<div class="menu-category"><span class="cat-box" data-type="buildings">buildings</span></div>
-	<div class="menu-category"><span class="cat-box">academics</span></div>
-	<div class="menu-category"><span class="cat-box">offices</span></div>
-	<div class="menu-category"><span class="cat-box">facilities</span></div>
-	<div class="menu-category"><span class="cat-box">accessibility</span></div>
+	<div class="menu-category" style="background-color:#dde2e2"><span class="cat-box" data-type="buildings">buildings</span></div>
+	<div class="menu-category" style="background-color:#d6cecd"><span class="cat-box">academics</span></div>
+	<div class="menu-category" style="background-color:#9a8e88"><span class="cat-box">offices</span></div>
+	<div class="menu-category" style="background-color:#52869f"><span class="cat-box">facilities</span></div>
+	<div class="menu-category" style="background-color:#f4581e"><span class="cat-box">accessibility</span></div>
   </div>
 
   <div class="flyout buildings"></div>
 
+  <img class="search-btn" src="images/view.png">
+
 	<script>
 
-	//$('.menu-open').on('click', function() {
+	$(document).on('click', '.search-btn', function() {
+		$('.points').addClass('reveal-vert');
+		$('.menu-open').addClass('fade-out');
+		$('.reveal-horz').removeClass('reveal-horz');
+		$('.search-btn').fadeOut();
+	});
+
 	$(document).on('click', '.menu-open', function() {
-		//$(this).toggleClass('trans-out');
 		$('.menu-open').addClass('fade-out');
 		$('.cat-wrap').removeClass('fade-out');
-		//$('.menu-open').animate({ opacity: 0, width: '0px' }, 500, function() { // done. });
-		//$('.cat-wrap').animate({ opacity: 1, width: auto }, 500, function() { // Animation complete. });
+		$('.search-btn').fadeOut();
 	});
 
 	$(document).on('click', '.cat-box', function() {
@@ -168,12 +174,11 @@
 
 	$(document).keyup(function(e) {
 		if (e.keyCode === 27) {
-			//$('.menu-open').animate({ opacity: 1, width: '0px' }, 500, function() { // done. });
-			//$('.cat-wrap').animate({ opacity: 0, width: auto }, 500, function() { // Animation complete. });
 			$('.menu-open').removeClass('fade-out');
 			$('.cat-wrap').addClass('fade-out');
-			//$('.flyout').hide();
 			$('.reveal-horz').removeClass('reveal-horz');
+			$('.reveal-vert').removeClass('reveal-vert');
+			$('.search-btn').fadeIn();
 		}
 	});
 

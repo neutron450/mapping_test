@@ -3,12 +3,23 @@
 div.tab {
 	position: absolute;
 	left: 50px;
-	bottom: 50px;
+	bottom: -200px;
 	overflow: hidden;
 	border: 1px solid #ccc;
 	background-color: #f1f1f1;
 	width: 350px;
 	height: 400px;
+	opacity: 0;
+
+
+	-webkit-transition: bottom 0.5s ease, opacity 0.5s ease; /* For Safari 3.1 to 6.0 */
+    transition: bottom 0.5s ease, opacity 0.5s ease;
+
+}
+
+div.reveal-vert {
+	opacity: 1;
+	bottom: 50px;
 }
 
 div.contain-list {

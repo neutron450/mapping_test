@@ -78,7 +78,7 @@ function buildMapMenu(MapLabels){
 	$('select.menu-buildings').append(joined);
 	joined = $.map(catBuildings, function(e){
 		return e;
-	}).join('<br>');
+	}).join('');
 	$('div.buildings').append(joined);
 }
 

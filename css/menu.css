@@ -1,3 +1,12 @@
+img.search-btn {
+	position: fixed;
+	left: 20px;
+	bottom: 20px;
+	width: 30px;
+	pointer-events: all;
+	cursor: pointer;
+}
+
 
 div.nav-menu {
 
@@ -19,8 +28,8 @@ div.nav-menu {
 	height: 50px;
 	width: 150px;
 
-	-webkit-transition: width 1s ease, opacity 1s ease; /* For Safari 3.1 to 6.0 */
-    transition: width 1s ease, opacity 1s ease;
+	-webkit-transition: width 0.25s ease, opacity 0.25s ease; /* For Safari 3.1 to 6.0 */
+    transition: width 0.25s ease, opacity 0.25s ease;
 
 	pointer-events: auto;
     cursor: pointer;
@@ -31,6 +40,7 @@ div.nav-menu {
 div.menu-open {
 	left: 0px;
 	width: auto;
+	opacity: 1;
 }
 
 
@@ -44,7 +54,6 @@ div.cat-wrap {
 	left: 0px;
 	width: auto;
 	opacity: 1;
-
 
     display: flex;
     flex-direction: row;
@@ -68,6 +77,7 @@ span.cat-box {
 }
 
 div.fade-out {
+	left: -100px;
 	width: 0px;
 	opacity: 0;
 }
@@ -76,35 +86,39 @@ div.flyout {
 	position: fixed;
 	top: 50%;
 	transform: translateY(-50%);
-	/*display: none;*/
 	z-index: 901;
 	background-color: #fff;
 	height: auto;
+
+	max-height: 100vh;
+    overflow: scroll;
+
 	margin: auto 0px;
-	padding: 25px 0px;
+	padding: 0px;
 	pointer-events: auto;
-	overflow: hidden;
 
 	width: 0px;
 	opacity: 0;
 
-	-webkit-transition: width 0.5s ease, opacity 0.5s ease; /* For Safari 3.1 to 6.0 */
-    transition: width 0.5s ease, opacity 0.5s ease;
+	-webkit-transition: width 0.25s ease, opacity 0.25s ease; /* For Safari 3.1 to 6.0 */
+    transition: width 0.25s ease, opacity 0.25s ease;
 }
 
 div.reveal-horz {
 	width: auto;
 	opacity: 1;
 
-	-webkit-transition: width 0.5s ease, opacity 0.5s ease; /* For Safari 3.1 to 6.0 */
-    transition: width 0.5s ease, opacity 0.5s ease;
+	-webkit-transition: width 0.25s ease, opacity 0.25s ease; /* For Safari 3.1 to 6.0 */
+    transition: width 0.25s ease, opacity 0.25s ease;
 }
 
 div.flyout span {
+	display: block;
 	font-size: 12px;
 	font-weight: bold;
-	margin: 25px;
+	margin: 10px 20px;
 	pointer-events: auto;
+	cursor: pointer;
 }
 
 
