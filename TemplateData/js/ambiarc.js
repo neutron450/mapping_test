@@ -182,7 +182,7 @@
       return fetch(url, options)
         .then(res => res.json())
         .then((out) => {
-          return new Promise(function(resolve, reject) {
+          var output = new Promise(function(resolve, reject) {
             out.features.forEach(function(element) {
               element.properties.latitude = element.geometry.coordinates[1];
               element.properties.longitude = element.geometry.coordinates[0];
@@ -192,6 +192,7 @@
             });
            resolve(out.features)
           });
+          return output;
         })
         .catch(err => {
           throw err

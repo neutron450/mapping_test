@@ -13,6 +13,27 @@
 				.indexOf((match[3] || "").toLowerCase()) >= 0;
 		  }
 		});
+
+		var schoolString = '';
+		$(document.aca.academics).each(function(key, record){
+			window.schoolList = Object.keys(record);
+		});
+
+		var subFly;
+		$(schoolList).each(function(key0, level0){
+			schoolString += '<span class="fly-box" data-school="'+level0+'" >'+level0+'</span>';
+			subFly = '<div class="subfly" data-type="'+level0+'" >';
+			$(document.aca.academics[level0]).each(function(key1, level1){
+				for(var item in level1) {
+					subFly += '<span data-bldg="'+level1[item][0]+'" data-dept="'+item+'">'+item+'</span>';
+				}
+			});
+			subFly += '</div>';
+			$('body').append(subFly);
+		});
+
+		$('div.schools').append(schoolString);
+
 	});
 
 	$(document).on("keyup", "input.filter", function(e){
@@ -34,4 +55,25 @@
 			$(".list-group-item[data-building!='"+building+"']").addClass("hidden");
 		}
 	}
+
+	$(document).on("click", "div.subfly>span", function(e){
+		var bldg = $(this).attr('data-bldg');
+		var dept = $(this).attr('data-dept');
+		var schl = $(this).closest('div').attr('data-type');
+		//alert(bldg + ' - ' + dept + ' - ' + schl);
+
+		console.log(' - - - - - - - - - - - ');
+		for(var item in mapStuff) {
+			if (mapStuff[item].user_properties.bldgAbbr == bldg && mapStuff[item].user_properties.gkDepartment == dept) {
+				console.log(mapStuff[item]);
+				var id = mapStuff[item].properties.mapLabelId;
+				//alert(id);
+				adjustMapFocus(e.currentTarget, id);
+			}
+		}
+		console.log(' - - - - - - - - - - - ');
+
+
+	});
+
 

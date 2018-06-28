@@ -17,11 +17,6 @@ div.tab {
 
 }
 
-div.reveal-vert {
-	opacity: 1;
-	bottom: 50px;
-}
-
 div.contain-list {
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -242,7 +237,6 @@ select::-ms-expand {
 	-ms-word-break: normal;
 	word-break: normal;
 }
-
 
 
 

@@ -1,5 +1,6 @@
  body {
    padding-top: 20px;
+   pointer-events: none;
  }
 
  .ui-item {
@@ -12,6 +13,10 @@
  }
 
  .bootstrapMenu {
+   pointer-events: all;
+ }
+
+ iframe {
    pointer-events: all;
  }
 

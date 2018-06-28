@@ -30,7 +30,7 @@
    ambiarc.registerForEvent(ambiarc.eventLabel.FloorSelectorEnabled, onEnteredFloorSelector);
    ambiarc.registerForEvent(ambiarc.eventLabel.FloorSelectorDisabled, onExitedFloorSelector);
    ambiarc.registerForEvent(ambiarc.eventLabel.FloorSelectorFloorFocusChanged, onFloorSelectorFocusChanged);
-   
+
    ambiarc.getAllBuildings((bldgs) => {
      mainBldgID = bldgs[0];
      ambiarc.getAllFloors(mainBldgID, (local_floors) => {

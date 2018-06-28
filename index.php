@@ -1,7 +1,15 @@
 <?php
+
+	//ini_set('error_reporting', E_ERROR & ~E_WARNING);
+	ini_set('error_reporting', E_ALL);
+	ini_set('display_errors', true);
+	ini_set('log_errors', 1);
+	ini_set('error_log', 'php-error.log');
+	error_log( ' - - - - - - - - - - - - - - - - ' );
+
 	session_start();
 	//echo __DIR__;
-	include_once('dbtools.inc.php');
+	include_once('includes/dbtools.inc.php');
 	$obj = new DbTools;
 	if (!$_SESSION['token']) {
 		$obj->createToken();
@@ -36,6 +44,14 @@
 
     <script>
     	document.token = "<?php echo $_SESSION['token'] ?>";
+    	var aca = '<?php $obj->fetchAcademicArray() ?>';
+    	//console.log('one');
+    	//console.log(aca);
+    	document.aca = JSON.parse(aca);
+    	//document.aca = JSON.stringify(aca);
+    	//console.log(document.academics);
+    	//alert('here');
+    	//console.log('two');
     </script>
 
   <script src="js/demo-ui.js"></script>
@@ -49,7 +65,7 @@
 
 </head>
 
-<body style="pointer-events: none">
+<body style="pointer-events:none">
 
 
   <div id="bootstrap" hidden>
@@ -87,7 +103,7 @@
 </ul>
 -->
 
-        <div class="tab points" style="pointer-events: all">
+        <div class="tab points" style="">
         	<!--<div class="filter" contenteditable="true">filter</div>-->
 
 			<div class="selectdiv ">
@@ -138,13 +154,14 @@
 
   <div class="nav-menu cat-wrap fade-out">
 	<div class="menu-category" style="background-color:#dde2e2"><span class="cat-box" data-type="buildings">buildings</span></div>
-	<div class="menu-category" style="background-color:#d6cecd"><span class="cat-box">academics</span></div>
+	<div class="menu-category" style="background-color:#d6cecd"><span class="cat-box" data-type="schools">academics</span></div>
 	<div class="menu-category" style="background-color:#9a8e88"><span class="cat-box">offices</span></div>
 	<div class="menu-category" style="background-color:#52869f"><span class="cat-box">facilities</span></div>
 	<div class="menu-category" style="background-color:#f4581e"><span class="cat-box">accessibility</span></div>
   </div>
 
   <div class="flyout buildings"></div>
+  <div class="flyout schools"></div>
 
   <img class="search-btn" src="images/view.png">
 
@@ -161,26 +178,63 @@
 		$('.menu-open').addClass('fade-out');
 		$('.cat-wrap').removeClass('fade-out');
 		$('.search-btn').fadeOut();
+		$('body').css({'pointer-events':'auto'});
+		$('iframe').css({'pointer-events':'all'});
 	});
 
 	$(document).on('click', '.cat-box', function() {
+		$('.reveal-horz').removeClass('reveal-horz');
+		var pos = $(this).closest('div').position();
 		var type = $(this).attr('data-type');
+		$('div.'+type).css({left:pos.left});
 		$('div.'+type).addClass('reveal-horz');
 	});
 
+	$(document).on('click', '.fly-box', function() {
+		$('.subfly').removeClass('reveal-horz');
+		var pos = $(this).closest('div').position();
+		var wid = $(this).closest('div').width();
+		var left = parseInt(pos.left + wid);
+		//alert(wid + ' -- ' + left);
+		var type = $(this).attr('data-school');
+		$("[data-type='"+type+"']").css({left:left});
+		$("[data-type='"+type+"']").addClass('reveal-horz');
+	});
+
 	$('div.flyout').mouseleave(function() {
+		if ($('.subfly').css('opacity') > 0) {
+			return true;
+		}
+		$(this).removeClass('reveal-horz');
+	});
+
+	$('div.subfly').mouseleave(function() {
 		$(this).removeClass('reveal-horz');
 	});
 
 	$(document).keyup(function(e) {
 		if (e.keyCode === 27) {
-			$('.menu-open').removeClass('fade-out');
-			$('.cat-wrap').addClass('fade-out');
-			$('.reveal-horz').removeClass('reveal-horz');
-			$('.reveal-vert').removeClass('reveal-vert');
-			$('.search-btn').fadeIn();
+			resetMenus();
 		}
 	});
+
+	$(document).on('click', '*', function(e) {
+		console.log(e.target.nodeName);
+		if (e.target.nodeName=='BODY' || e.target.nodeName=='HTML') {
+			resetMenus();
+		}
+	});
+
+	function resetMenus() {
+		$('.menu-open').removeClass('fade-out');
+		$('.cat-wrap').addClass('fade-out');
+		$('.reveal-horz').removeClass('reveal-horz');
+		$('.reveal-vert').removeClass('reveal-vert');
+		$('.search-btn').fadeIn();
+		$('html').css({'pointer-events':'none'});
+		$('body').css({'pointer-events':'none'});
+		$('iframe').css({'pointer-events':'all'});
+	}
 
 	</script>
 

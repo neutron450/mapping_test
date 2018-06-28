@@ -1,3 +1,7 @@
+.points {
+	pointer-events: none;
+}
+
 img.search-btn {
 	position: fixed;
 	left: 20px;
@@ -82,7 +86,7 @@ div.fade-out {
 	opacity: 0;
 }
 
-div.flyout {
+div.flyout, div.subfly {
 	position: fixed;
 	top: 50%;
 	transform: translateY(-50%);
@@ -100,19 +104,23 @@ div.flyout {
 	width: 0px;
 	opacity: 0;
 
-	-webkit-transition: width 0.25s ease, opacity 0.25s ease; /* For Safari 3.1 to 6.0 */
-    transition: width 0.25s ease, opacity 0.25s ease;
+    transition: width 0.25s ease 0.9s, opacity 0.25s ease 0.9s;
 }
 
 div.reveal-horz {
 	width: auto;
 	opacity: 1;
-
-	-webkit-transition: width 0.25s ease, opacity 0.25s ease; /* For Safari 3.1 to 6.0 */
-    transition: width 0.25s ease, opacity 0.25s ease;
+	pointer-events: auto;
+    transition: width 0.25s ease 0.1s, opacity 0.25s ease 0.1s;
 }
 
-div.flyout span {
+div.reveal-vert {
+	opacity: 1;
+	pointer-events: auto;
+	bottom: 50px;
+}
+
+div.flyout span, div.subfly span {
 	display: block;
 	font-size: 12px;
 	font-weight: bold;

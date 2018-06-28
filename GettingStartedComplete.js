@@ -43,7 +43,7 @@ var onAmbiarcLoaded = function() {
   ambiarc.loadRemoteMapLabels("https://map.pratt.edu/facilities/web/facilities/get?token="+document.token+"&webapp=display").then((out) => {
 	MapLabels = out;
 	//ambiarc.mapStuff = out;
-	//console.log(ambiarc.mapStuff);
+	window.mapStuff = out;
 	buildMapMenu(out);
   });
 

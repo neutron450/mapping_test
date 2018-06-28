@@ -1,6 +1,6 @@
 <?php
 
-include_once('sitevars.inc.php');
+include_once('includes/sitevars.inc.php');
 
 class DbTools {
 
@@ -55,6 +55,11 @@ class DbTools {
 		} catch(PDOException $e) {
 			echo $sql . "<br>" . $e->getMessage();
 		}
+	}
+
+	public function fetchAcademicArray() {
+		include_once('includes/simplified.inc.php');
+		echo json_encode($arr);
 	}
 
 }
