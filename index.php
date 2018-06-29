@@ -45,13 +45,7 @@
     <script>
     	document.token = "<?php echo $_SESSION['token'] ?>";
     	var aca = '<?php $obj->fetchAcademicArray() ?>';
-    	//console.log('one');
-    	//console.log(aca);
     	document.aca = JSON.parse(aca);
-    	//document.aca = JSON.stringify(aca);
-    	//console.log(document.academics);
-    	//alert('here');
-    	//console.log('two');
     </script>
 
   <script src="js/demo-ui.js"></script>
@@ -202,14 +196,23 @@
 	});
 
 	$('div.flyout').mouseleave(function() {
+		var close = true;
 		if ($('.subfly').css('opacity') > 0) {
-			return true;
+			close = false;
 		}
-		$(this).removeClass('reveal-horz');
+		$('.subfly').each(function(){
+			if ($(this).css('opacity') > 0) {
+				close = false;
+			}
+		});
+		if (close == true) {
+			$(this).removeClass('reveal-horz');
+		}
 	});
 
-	$('div.subfly').mouseleave(function() {
-		$(this).removeClass('reveal-horz');
+	$('.subfly').mouseleave(function(e) {
+		alert(e.target.nodeName);
+		$('.subfly').removeClass('reveal-horz');
 	});
 
 	$(document).keyup(function(e) {

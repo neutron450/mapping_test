@@ -2,23 +2,23 @@
 
 $arr = array();
 
-@$arr['academics']['architecture']['Undergraduate Architecture'] = ['HH'];
-@$arr['academics']['architecture']['Construction Management'] = ['HH'];
+@$arr['academics']['architecture']['Undergraduate Architecture'] = ['HH'];///
+@$arr['academics']['architecture']['Construction Management'] = ['W14'];///
 
-@$arr['academics']['architecture']['City and Regional Planning'] = ['HH'];
-@$arr['academics']['architecture']['Facilities Management'] = ['HH'];
-@$arr['academics']['architecture']['Graduate Architecture and Urban Design'] = ['HH'];
-@$arr['academics']['architecture']['Historic Preservation'] = ['HH'];
-@$arr['academics']['architecture']['Graduate Center for Planning and the Environment'] = ['HH'];
-@$arr['academics']['architecture']['Real Estate Practice'] = ['HH'];
-@$arr['academics']['architecture']['Sustainable Environmental Systems'] = ['HH'];
-@$arr['academics']['architecture']['Urban Placemaking and Management'] = ['HH'];
+@$arr['academics']['architecture']['City and Regional Planning'] = ['HH'];///
+@$arr['academics']['architecture']['Facilities Management'] = ['W14'];///
+@$arr['academics']['architecture']['Graduate Architecture and Urban Design'] = ['HH'];///
+@$arr['academics']['architecture']['Historic Preservation'] = ['HH'];///
+@$arr['academics']['architecture']['Graduate Center for Planning and the Environment'] = ['HH'];///
+@$arr['academics']['architecture']['Real Estate Practice'] = ['HH'];///
+@$arr['academics']['architecture']['Sustainable Environmental Systems'] = ['HH'];///
+@$arr['academics']['architecture']['Urban Placemaking and Management'] = ['HH'];///
 
-@$arr['academics']['art']['Art and Design Education'] = ['MAIN'];
+@$arr['academics']['art']['Art and Design Education'] = ['MAIN'];///
 //@$arr['academics']['art']['Associate Degrees'] = ['Associate Degrees'];
-@$arr['academics']['art']['Digital Arts'] = ['MH'];
-@$arr['academics']['art']['Film/Video'] = ['ARC'];
-@$arr['academics']['art']['Fine Arts'] = ['SH'];
+@$arr['academics']['art']['Digital Arts'] = ['MH'];///
+@$arr['academics']['art']['Film/Video'] = ['FV'];/// 40.693492 -73.962521
+@$arr['academics']['art']['Fine Arts'] = ['SH'];///
 @$arr['academics']['art']['Foundation'] = ['MAIN'];
 @$arr['academics']['art']['Photography'] = ['ARC'];
 

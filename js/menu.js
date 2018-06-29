@@ -62,13 +62,20 @@
 		var schl = $(this).closest('div').attr('data-type');
 		//alert(bldg + ' - ' + dept + ' - ' + schl);
 
+		if (dept == '') {
+
+		}
+
 		console.log(' - - - - - - - - - - - ');
 		for(var item in mapStuff) {
-			if (mapStuff[item].user_properties.bldgAbbr == bldg && mapStuff[item].user_properties.gkDepartment == dept) {
-				console.log(mapStuff[item]);
-				var id = mapStuff[item].properties.mapLabelId;
-				//alert(id);
-				adjustMapFocus(e.currentTarget, id);
+			//if (mapStuff[item].user_properties.bldgAbbr == bldg && mapStuff[item].user_properties.gkDepartment == dept) {
+			if (mapStuff[item].user_properties.bldgAbbr == bldg) {
+				if (mapStuff[item].user_properties.gkDepartment.indexOf(dept) != -1) {
+					console.log(mapStuff[item]);
+					var id = mapStuff[item].properties.mapLabelId;
+					adjustMapFocus(e.currentTarget, id);
+					break;
+				}
 			}
 		}
 		console.log(' - - - - - - - - - - - ');
