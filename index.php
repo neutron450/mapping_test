@@ -11,7 +11,7 @@
 	//echo __DIR__;
 	include_once('includes/dbtools.inc.php');
 	$obj = new DbTools;
-	if (!$_SESSION['token']) {
+	if (!@$_SESSION['token']) {
 		$obj->createToken();
 	} else {
 		if ($obj->checkToken($_SESSION['token'])) {
@@ -154,90 +154,12 @@
 	<div class="menu-category" style="background-color:#f4581e"><span class="cat-box">accessibility</span></div>
   </div>
 
-  <div class="flyout buildings"></div>
-  <div class="flyout schools"></div>
+	<div class="flyout buildings"></div>
+	<div class="flyout schools"></div>
 
-  <img class="search-btn" src="images/view.png">
+	<img class="search-btn" src="images/view.png">
 
 	<script>
-
-	$(document).on('click', '.search-btn', function() {
-		$('.points').addClass('reveal-vert');
-		$('.menu-open').addClass('fade-out');
-		$('.reveal-horz').removeClass('reveal-horz');
-		$('.search-btn').fadeOut();
-	});
-
-	$(document).on('click', '.menu-open', function() {
-		$('.menu-open').addClass('fade-out');
-		$('.cat-wrap').removeClass('fade-out');
-		$('.search-btn').fadeOut();
-		$('body').css({'pointer-events':'auto'});
-		$('iframe').css({'pointer-events':'all'});
-	});
-
-	$(document).on('click', '.cat-box', function() {
-		$('.reveal-horz').removeClass('reveal-horz');
-		var pos = $(this).closest('div').position();
-		var type = $(this).attr('data-type');
-		$('div.'+type).css({left:pos.left});
-		$('div.'+type).addClass('reveal-horz');
-	});
-
-	$(document).on('click', '.fly-box', function() {
-		$('.subfly').removeClass('reveal-horz');
-		var pos = $(this).closest('div').position();
-		var wid = $(this).closest('div').width();
-		var left = parseInt(pos.left + wid);
-		//alert(wid + ' -- ' + left);
-		var type = $(this).attr('data-school');
-		$("[data-type='"+type+"']").css({left:left});
-		$("[data-type='"+type+"']").addClass('reveal-horz');
-	});
-
-	$('div.flyout').mouseleave(function() {
-		var close = true;
-		if ($('.subfly').css('opacity') > 0) {
-			close = false;
-		}
-		$('.subfly').each(function(){
-			if ($(this).css('opacity') > 0) {
-				close = false;
-			}
-		});
-		if (close == true) {
-			$(this).removeClass('reveal-horz');
-		}
-	});
-
-	$('.subfly').mouseleave(function(e) {
-		alert(e.target.nodeName);
-		$('.subfly').removeClass('reveal-horz');
-	});
-
-	$(document).keyup(function(e) {
-		if (e.keyCode === 27) {
-			resetMenus();
-		}
-	});
-
-	$(document).on('click', '*', function(e) {
-		console.log(e.target.nodeName);
-		if (e.target.nodeName=='BODY' || e.target.nodeName=='HTML') {
-			resetMenus();
-		}
-	});
-
-	function resetMenus() {
-		$('.menu-open').removeClass('fade-out');
-		$('.cat-wrap').addClass('fade-out');
-		$('.reveal-horz').removeClass('reveal-horz');
-		$('.reveal-vert').removeClass('reveal-vert');
-		$('.search-btn').fadeIn();
-		$('html').css({'pointer-events':'none'});
-		$('body').css({'pointer-events':'none'});
-		$('iframe').css({'pointer-events':'all'});
-	}
 
 	</script>
 

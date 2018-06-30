@@ -1,3 +1,34 @@
+	function buildMapMenu(MapLabels){
+		lButtons = {};
+		lBldgs = {};
+		$(MapLabels).each(function(key, record){
+			lBldgs[record.user_properties.bldgAbbr] = record.user_properties.bldgName;
+			lButtons[record.properties.mapLabelId] = '<li  id="'+record.properties.mapLabelId+'"  data-id="'+record.properties.mapLabelId+'"  data-building="'+record.user_properties.bldgAbbr+'"  class="list-group-item"  >';
+			lButtons[record.properties.mapLabelId] += '<div class="li-col li-label"><span>'+record.properties.label+'</span></div>';
+			lButtons[record.properties.mapLabelId] += '<div class="li-col li-bldg"><span>'+record.user_properties.bldgAbbr+'</span></div>';
+			lButtons[record.properties.mapLabelId] += '<div class="li-col li-room"><span>'+record.user_properties.newRoomNo+'</span></div></li>';
+		});
+		joined = $.map(lButtons, function(e){
+			return e;
+		}).join(' ');
+		$('ul.list-group').append(joined);
+		//console.log(lBldgs);
+		bOptions = {};
+		catBuildings = {};
+		for (var prop in lBldgs) {
+			bOptions[prop] = '<option value="'+prop+'">'+lBldgs[prop]+'</option>';
+			catBuildings[prop] = '<span>'+lBldgs[prop]+'</span>';
+		}
+		joined = $.map(bOptions, function(e){
+			return e;
+		}).join(' ');
+		$('select.menu-buildings').append(joined);
+		joined = $.map(catBuildings, function(e){
+			return e;
+		}).join('');
+		$('div.buildings').append(joined);
+	}
+
 	$(document).on("click", "li.list-group-item", function(e){
 		console.log(e);
 		var id = $(this).attr('data-id');
@@ -33,6 +64,99 @@
 		});
 
 		$('div.schools').append(schoolString);
+
+
+
+		$(document).on('click', '.search-btn', function() {
+			$('.points').addClass('reveal-vert');
+			$('.menu-open').addClass('fade-out');
+			$('.reveal-horz').removeClass('reveal-horz');
+			$('.search-btn').fadeOut();
+		});
+
+		$(document).on('click', '.menu-open', function() {
+			$('.menu-open').addClass('fade-out');
+			$('.cat-wrap').removeClass('fade-out');
+			$('.search-btn').fadeOut();
+			$('body').css({'pointer-events':'auto'});
+			$('iframe').css({'pointer-events':'all'});
+		});
+
+		$(document).on('click', '.cat-box', function() {
+			$('.reveal-horz').removeClass('reveal-horz');
+			var pos = $(this).closest('div').position();
+			var type = $(this).attr('data-type');
+			$('div.'+type).css({left:pos.left});
+			$('div.'+type).addClass('reveal-horz');
+		});
+
+		$(document).on('click', '.fly-box', function() {
+			$('.subfly').removeClass('reveal-horz');
+			var pos = $(this).closest('div').position();
+			var wid = $(this).closest('div').width();
+			var left = parseInt(pos.left + wid);
+			//alert(wid + ' -- ' + left);
+			var type = $(this).attr('data-school');
+			$("[data-type='"+type+"']").css({left:left});
+			$("[data-type='"+type+"']").addClass('reveal-horz');
+		});
+
+		$('div.flyout').mouseleave(function() {
+			var close = true;
+			$('.subfly').each(function(){
+				if ($(this).css('opacity') > 0) {
+					close = false;
+				}
+			});
+			if (close == true) {
+				var hi = $(this).height();
+				$('.flyout').css({height: hi});
+				setTimeout(function(){
+					$('.flyout').animate({width: '0px', opacity: 0}).promise().then(function(){
+						$('.flyout').removeClass('reveal-horz').promise().then(function(){
+							setTimeout(function(){ $('.flyout').removeAttr('style'); }, 750);
+						});
+					});
+				}, 750);
+			}
+		});
+
+		$('.subfly').mouseleave(function(e) {
+			var hi = $(this).height();
+			$('.subfly').css({height: hi});
+			setTimeout(function(){
+				$('.subfly').animate({width: '0px', opacity: 0}).promise().then(function(){
+					$('.subfly').removeClass('reveal-horz').promise().then(function(){
+						setTimeout(function(){ $('.subfly').removeAttr('style'); }, 750);
+					});
+				});
+			}, 750);
+		});
+
+		$(document).keyup(function(e) {
+			if (e.keyCode === 27) {
+				resetMenus();
+			}
+		});
+
+		$(document).on('click', '*', function(e) {
+			console.log(e.target.nodeName);
+			if (e.target.nodeName=='BODY' || e.target.nodeName=='HTML') {
+				resetMenus();
+			}
+		});
+
+		function resetMenus() {
+			$('.menu-open').removeClass('fade-out');
+			$('.cat-wrap').addClass('fade-out');
+			$('.reveal-horz').removeClass('reveal-horz');
+			$('.reveal-vert').removeClass('reveal-vert');
+			$('.search-btn').fadeIn();
+			$('html').css({'pointer-events':'none'});
+			$('body').css({'pointer-events':'none'});
+			$('iframe').css({'pointer-events':'all'});
+		}
+
 
 	});
 
@@ -80,7 +204,8 @@
 		}
 		console.log(' - - - - - - - - - - - ');
 
-
 	});
+
+
 
 

@@ -19,23 +19,23 @@ $arr = array();
 @$arr['academics']['art']['Digital Arts'] = ['MH'];///
 @$arr['academics']['art']['Film/Video'] = ['FV'];/// 40.693492 -73.962521
 @$arr['academics']['art']['Fine Arts'] = ['SH'];///
-@$arr['academics']['art']['Foundation'] = ['MAIN'];
-@$arr['academics']['art']['Photography'] = ['ARC'];
+@$arr['academics']['art']['Foundation'] = ['MAIN'];///
+@$arr['academics']['art']['Photography'] = ['ARC'];///
 
-@$arr['academics']['art']['Arts and Cultural Management'] = ['PMC'];
-@$arr['academics']['art']['Art and Design Education'] = ['MAIN'];
-@$arr['academics']['art']['Creative Arts Therapy'] = ['NH'];
-@$arr['academics']['art']['Design Management'] = ['PMC'];
-@$arr['academics']['art']['Digital Arts'] = ['ARC'];
-@$arr['academics']['art']['Fine Arts'] = ['SH'];
+@$arr['academics']['art']['Arts and Cultural Management'] = ['MAIN'];///
+@$arr['academics']['art']['Art and Design Education'] = ['MAIN'];///
+@$arr['academics']['art']['Creative Arts Therapy'] = ['NH'];///
+@$arr['academics']['art']['Design Management'] = ['W14'];///
+@$arr['academics']['art']['Digital Arts'] = ['MH'];///
+@$arr['academics']['art']['Fine Arts'] = ['SH'];///
 
-@$arr['academics']['design']['Communications Design'] = ['STEU'];
-@$arr['academics']['design']['Fashion Design'] = ['STEU'];
-@$arr['academics']['design']['Foundation'] = ['MAIN'];
+@$arr['academics']['design']['Communications Design'] = ['STEU'];///
+@$arr['academics']['design']['Fashion Design'] = ['STEU'];///
+@$arr['academics']['design']['Foundation'] = ['MAIN'];///
 @$arr['academics']['design']['Industrial Design'] = ['PS'];
 @$arr['academics']['design']['Interior Design'] = ['PS'];
 
-@$arr['academics']['design']['Communications Design'] = ['STEU'];
+@$arr['academics']['design']['Communications Design'] = ['STEU'];///
 @$arr['academics']['design']['Industrial Design'] = ['PS'];
 @$arr['academics']['design']['Interior Design'] = ['PS'];
 @$arr['academics']['design']['Package Design'] = ['STEU'];

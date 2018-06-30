@@ -87,6 +87,7 @@ div.fade-out {
 }
 
 div.flyout, div.subfly {
+	/*display: block;*/
 	position: fixed;
 	top: 50%;
 	transform: translateY(-50%);
@@ -106,14 +107,15 @@ div.flyout, div.subfly {
 	width: 0px;
 	opacity: 0;
 
-    transition: width 0.25s ease 1s, opacity 0.25s ease 1s;
+    /*transition: width 0.35s ease, opacity 0.35s ease;*/
+    transition: all 0.35s ease;
 }
 
 div.reveal-horz {
 	width: auto;
 	opacity: 1;
-	pointer-events: auto;
-    transition: width 0.25s ease 0s, opacity 0.25s ease 0s;
+    /*transition: width 0.35s ease, opacity 0.35s ease;*/
+    transition: all 0.35s ease;
 }
 
 div.reveal-vert {
