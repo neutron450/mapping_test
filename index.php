@@ -123,7 +123,7 @@
       <a class="floorName" href="#">First Floor</a>
     </li>
 
-    <div id="controls-section" style="pointer-events: all">
+    <div id="controls-section" style="pointer-events: auto">
       <ul>
         <li class="" onclick="zoomInHandler()">
           <span class="controls-btn ctrl-zoom-in glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -140,7 +140,7 @@
   </div>
 
   <iframe src="./map.html" id="ambiarcIframe" style="width:100%; height:100%; border:none; top:
-    0; z-index:-1; position:fixed; pointer-events: all;">
+    0; z-index:-1; position:fixed; pointer-events: auto;">
     Your browser doesn't support iframes
   </iframe>
 

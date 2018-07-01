@@ -1,5 +1,16 @@
+div.click-capture {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	z-index: 888;
+	pointer-events: auto;
+}
+
 .points {
 	pointer-events: none;
+    z-index: 900;
 }
 
 img.search-btn {
@@ -7,8 +18,9 @@ img.search-btn {
 	left: 20px;
 	bottom: 20px;
 	width: 30px;
-	pointer-events: all;
+	pointer-events: auto;
 	cursor: pointer;
+    z-index: 900;
 }
 
 
@@ -45,6 +57,7 @@ div.menu-open {
 	left: 0px;
 	width: auto;
 	opacity: 1;
+	z-index: 900;
 }
 
 
@@ -100,6 +113,8 @@ div.flyout, div.subfly {
     overflow-y: scroll;
     overflow-x: hidden;
 
+    white-space: nowrap;
+
 	margin: auto 0px;
 	padding: 0px;
 	pointer-events: auto;
@@ -109,6 +124,9 @@ div.flyout, div.subfly {
 
     /*transition: width 0.35s ease, opacity 0.35s ease;*/
     transition: all 0.35s ease;
+
+    z-index: 900;
+
 }
 
 div.reveal-horz {
@@ -131,6 +149,7 @@ div.flyout span, div.subfly span {
 	margin: 10px 20px;
 	pointer-events: auto;
 	cursor: pointer;
+    z-index: 900;
 }
 
 div.flyout span:hover, div.subfly span:hover {

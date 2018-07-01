@@ -1,43 +1,14 @@
-	function buildMapMenu(MapLabels){
-		lButtons = {};
-		lBldgs = {};
-		$(MapLabels).each(function(key, record){
-			lBldgs[record.user_properties.bldgAbbr] = record.user_properties.bldgName;
-			lButtons[record.properties.mapLabelId] = '<li  id="'+record.properties.mapLabelId+'"  data-id="'+record.properties.mapLabelId+'"  data-building="'+record.user_properties.bldgAbbr+'"  class="list-group-item"  >';
-			lButtons[record.properties.mapLabelId] += '<div class="li-col li-label"><span>'+record.properties.label+'</span></div>';
-			lButtons[record.properties.mapLabelId] += '<div class="li-col li-bldg"><span>'+record.user_properties.bldgAbbr+'</span></div>';
-			lButtons[record.properties.mapLabelId] += '<div class="li-col li-room"><span>'+record.user_properties.newRoomNo+'</span></div></li>';
-		});
-		joined = $.map(lButtons, function(e){
-			return e;
-		}).join(' ');
-		$('ul.list-group').append(joined);
-		//console.log(lBldgs);
-		bOptions = {};
-		catBuildings = {};
-		for (var prop in lBldgs) {
-			bOptions[prop] = '<option value="'+prop+'">'+lBldgs[prop]+'</option>';
-			catBuildings[prop] = '<span>'+lBldgs[prop]+'</span>';
-		}
-		joined = $.map(bOptions, function(e){
-			return e;
-		}).join(' ');
-		$('select.menu-buildings').append(joined);
-		joined = $.map(catBuildings, function(e){
-			return e;
-		}).join('');
-		$('div.buildings').append(joined);
-	}
-
-	$(document).on("click", "li.list-group-item", function(e){
-		console.log(e);
-		var id = $(this).attr('data-id');
-		adjustMapFocus(e.currentTarget, id);
-		//$('.active').removeClass('active');
-		$(this).addClass('seen').siblings().removeClass('active');
-	});
 
 	$(document).ready(function(){
+
+		$(document).on("click", "li.list-group-item", function(e){
+			console.log(e);
+			var id = $(this).attr('data-id');
+			adjustMapFocus(e.currentTarget, id);
+			//$('.active').removeClass('active');
+			$(this).addClass('seen').siblings().removeClass('active');
+		});
+
 		$.extend($.expr[':'], {
 		  'containsi': function(elem, i, match, array) {
 			return (elem.textContent || elem.innerText || '').toLowerCase()
@@ -65,21 +36,23 @@
 
 		$('div.schools').append(schoolString);
 
-
-
 		$(document).on('click', '.search-btn', function() {
 			$('.points').addClass('reveal-vert');
 			$('.menu-open').addClass('fade-out');
 			$('.reveal-horz').removeClass('reveal-horz');
 			$('.search-btn').fadeOut();
+			$('body').append('<div class="click-capture"></div>');
 		});
 
 		$(document).on('click', '.menu-open', function() {
 			$('.menu-open').addClass('fade-out');
 			$('.cat-wrap').removeClass('fade-out');
 			$('.search-btn').fadeOut();
-			$('body').css({'pointer-events':'auto'});
-			$('iframe').css({'pointer-events':'all'});
+			//$('body').css({'pointer-events':'auto'});
+			//$('*').css({'pointer-events':'auto'});
+			//$('#gameContainer').css({'pointer-events':'auto'});
+			$('body').append('<div class="click-capture"></div>');
+
 		});
 
 		$(document).on('click', '.cat-box', function() {
@@ -101,7 +74,13 @@
 			$("[data-type='"+type+"']").addClass('reveal-horz');
 		});
 
-		$('div.flyout').mouseleave(function() {
+		$(document).on('click', '.click-capture', function() {
+			//collapseMenus();
+			resetMenus();
+		});
+
+
+		$('.flyout').mouseleave(function() {
 			var close = true;
 			$('.subfly').each(function(){
 				if ($(this).css('opacity') > 0) {
@@ -146,29 +125,72 @@
 			}
 		});
 
-		function resetMenus() {
-			$('.menu-open').removeClass('fade-out');
-			$('.cat-wrap').addClass('fade-out');
-			$('.reveal-horz').removeClass('reveal-horz');
-			$('.reveal-vert').removeClass('reveal-vert');
-			$('.search-btn').fadeIn();
-			$('html').css({'pointer-events':'none'});
-			$('body').css({'pointer-events':'none'});
-			$('iframe').css({'pointer-events':'all'});
-		}
+		$(document).on("keyup", "input.filter", function(e){
+			//alert(this.value);
+			searchFunction();
+		});
 
+		$(document).on("change", "select.menu-buildings", function(e){
+			//alert(this.value);
+			searchFunction();
+		});
 
+		$(document).on("click", "div.subfly>span", function(e){
+			var bldg = $(this).attr('data-bldg');
+			var dept = $(this).attr('data-dept');
+			var schl = $(this).closest('div').attr('data-type');
+			//alert(bldg + ' - ' + dept + ' - ' + schl);
+
+			if (dept == '') {
+
+			}
+
+			for(var item in mapStuff) {
+				if (mapStuff[item].user_properties.bldgAbbr == bldg) {
+					if (mapStuff[item].user_properties.gkDepartment.indexOf(dept) != -1) {
+						console.log(mapStuff[item]);
+						var id = mapStuff[item].properties.mapLabelId;
+						adjustMapFocus(e.currentTarget, id);
+						collapseMenus();
+						break;
+					}
+				}
+			}
+		});
 	});
 
-	$(document).on("keyup", "input.filter", function(e){
-		//alert(this.value);
-		searchFunction();
-	});
+	function resetMenus() {
+		$('.menu-open').removeClass('fade-out');
+		$('.cat-wrap').addClass('fade-out');
+		$('.reveal-horz').removeClass('reveal-horz');
+		$('.reveal-vert').removeClass('reveal-vert');
+		$('.search-btn').fadeIn();
+		$('body').css({'pointer-events':'none'});
+		$('.click-capture').remove();
+	}
 
-	$(document).on("change", "select.menu-buildings", function(e){
-		//alert(this.value);
-		searchFunction();
-	});
+	function collapseMenus() {
+		setTimeout(function(){
+			$('.subfly').animate({width: '0px', opacity: 0}).promise().then(function(){
+				$('.subfly').removeClass('reveal-horz').promise().then(function(){
+					setTimeout(function(){ $('.subfly').removeAttr('style'); }, 750);
+					$('.flyout').animate({width: '0px', opacity: 0}).promise().then(function(){
+						setTimeout(function(){
+							$('.flyout').removeAttr('style');
+							$('.flyout').removeClass('reveal-horz');
+						}, 750);
+						$('.nav-menu').animate({width: '0px', opacity: 0}).promise().then(function(){
+							setTimeout(function(){
+								$('.nav-menu').removeAttr('style');
+								$('.nav-menu').removeClass('reveal-horz');
+								resetMenus();
+							}, 750);
+						});
+					});
+				});
+			});
+		}, 750);
+	}
 
 	function searchFunction () {
 		var filter = $("input.filter").val();
@@ -180,32 +202,36 @@
 		}
 	}
 
-	$(document).on("click", "div.subfly>span", function(e){
-		var bldg = $(this).attr('data-bldg');
-		var dept = $(this).attr('data-dept');
-		var schl = $(this).closest('div').attr('data-type');
-		//alert(bldg + ' - ' + dept + ' - ' + schl);
-
-		if (dept == '') {
-
+	function buildMapMenu(MapLabels){
+		lButtons = {};
+		lBldgs = {};
+		$(MapLabels).each(function(key, record){
+			lBldgs[record.user_properties.bldgAbbr] = record.user_properties.bldgName;
+			lButtons[record.properties.mapLabelId] = '<li  id="'+record.properties.mapLabelId+'"  data-id="'+record.properties.mapLabelId+'"  data-building="'+record.user_properties.bldgAbbr+'"  class="list-group-item"  >';
+			lButtons[record.properties.mapLabelId] += '<div class="li-col li-label"><span>'+record.properties.label+'</span></div>';
+			lButtons[record.properties.mapLabelId] += '<div class="li-col li-bldg"><span>'+record.user_properties.bldgAbbr+'</span></div>';
+			lButtons[record.properties.mapLabelId] += '<div class="li-col li-room"><span>'+record.user_properties.newRoomNo+'</span></div></li>';
+		});
+		joined = $.map(lButtons, function(e){
+			return e;
+		}).join(' ');
+		$('ul.list-group').append(joined);
+		//console.log(lBldgs);
+		bOptions = {};
+		catBuildings = {};
+		for (var prop in lBldgs) {
+			bOptions[prop] = '<option value="'+prop+'">'+lBldgs[prop]+'</option>';
+			catBuildings[prop] = '<span>'+lBldgs[prop]+'</span>';
 		}
-
-		console.log(' - - - - - - - - - - - ');
-		for(var item in mapStuff) {
-			//if (mapStuff[item].user_properties.bldgAbbr == bldg && mapStuff[item].user_properties.gkDepartment == dept) {
-			if (mapStuff[item].user_properties.bldgAbbr == bldg) {
-				if (mapStuff[item].user_properties.gkDepartment.indexOf(dept) != -1) {
-					console.log(mapStuff[item]);
-					var id = mapStuff[item].properties.mapLabelId;
-					adjustMapFocus(e.currentTarget, id);
-					break;
-				}
-			}
-		}
-		console.log(' - - - - - - - - - - - ');
-
-	});
-
+		joined = $.map(bOptions, function(e){
+			return e;
+		}).join(' ');
+		$('select.menu-buildings').append(joined);
+		joined = $.map(catBuildings, function(e){
+			return e;
+		}).join('');
+		$('div.buildings').append(joined);
+	}
 
 
 
