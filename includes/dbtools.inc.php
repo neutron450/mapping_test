@@ -32,7 +32,7 @@ class DbTools {
 
 		try {
 			$token = bin2hex(random_bytes(15));
-			$sql = "INSERT INTO tokens (token) VALUES ('$token')";
+			echo 'insert token: '.$sql = "INSERT INTO tokens (token) VALUES ('$token')";
 			$this->dbh->exec($sql);
 			//echo 'setting token : '.$_SESSION['token'] = $token;
 			$_SESSION['token'] = $token;
@@ -44,6 +44,7 @@ class DbTools {
 	public function checkToken($token) {
 
 		try {
+			//echo 'check token: '.$sql = "SELECT * FROM tokens WHERE token = '$token'";
 			$sql = "SELECT * FROM tokens WHERE token = '$token'";
 			$stmt = $this->dbh->prepare($sql);
 			$stmt->execute();

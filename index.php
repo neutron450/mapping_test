@@ -139,7 +139,7 @@
     </div>
   </div>
 
-  <iframe src="./map.html" id="ambiarcIframe" style="width:100%; height:100%; border:none; top:
+  <iframe src="./map.php" id="ambiarcIframe" style="width:100%; height:100%; border:none; top:
     0; z-index:-1; position:fixed; pointer-events: auto;">
     Your browser doesn't support iframes
   </iframe>

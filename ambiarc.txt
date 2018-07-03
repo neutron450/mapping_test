@@ -34,12 +34,11 @@
       this.messageQueue.push(callback);
       gameInstance.SendMessage('Ambiarc', 'GetMapPositionAtCursor', coordType);
     };
-    this.createMapLabel = function(mapLabelType, maplLabelInfo, idCallback) {
-
+    this.createMapLabel = function(mapLabelType, mabelLabelInfo, idCallback) {
       this.messageQueue.push(idCallback);
       var json = JSON.stringify({
         mapLabelType: mapLabelType,
-        mapLabelInfo: maplLabelInfo
+        mapLabelInfo: mabelLabelInfo
       });
       gameInstance.SendMessage('Ambiarc', 'CreateMapLabel', json);
     };
@@ -178,24 +177,22 @@
     this.unregisterEvent = function(eventLabel, cb) {
       document.removeEventListener(eventLabel, cb);
     };
-    this.loadRemoteMapLabels = function(url, options) {
-      return fetch(url, options)
+    this.loadRemoteMapLabels = function(url) {
+      return fetch(url)
         .then(res => res.json())
         .then((out) => {
-          //console.log(out);
           return new Promise(function(resolve, reject) {
-           out.features.forEach(function(element) {
-              element.properties.latitude = element.geometry.coordinates[1];
-              element.properties.longitude = element.geometry.coordinates[0];
-              window.Ambiarc.createMapLabel(element.properties.type, element.properties, function(id) {
-                 element.properties.mapLabelId = id;
-              })
-           });
+            out.features.forEach(function(element) {
+  						element.properties.latitude = element.geometry.coordinates[1];
+  						element.properties.longitude = element.geometry.coordinates[0];
+  						window.Ambiarc.createMapLabel(element.properties.type, element.properties, function(id) {
+                 element.properties.id = id;
+  						})
+  					});
            resolve(out.features)
           });
         })
         .catch(err => {
-          console.log(err);
           throw err
         });
     };

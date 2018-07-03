@@ -146,7 +146,11 @@
 			}
 
 			for(var item in mapStuff) {
+				if (mapStuff[item].user_properties.gkDepartment == '') {
+					continue;
+				}
 				if (mapStuff[item].user_properties.bldgAbbr == bldg) {
+					console.log(dept + ' +++ ' + (mapStuff[item].user_properties.gkDepartment));
 					if (mapStuff[item].user_properties.gkDepartment.indexOf(dept) != -1) {
 						console.log(mapStuff[item]);
 						var id = mapStuff[item].properties.mapLabelId;

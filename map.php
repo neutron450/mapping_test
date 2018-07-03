@@ -9,7 +9,7 @@
   <script src="TemplateData/js/jquery-2.2.4.min.js"></script>
   <script src="TemplateData/js/bootstrap.min.js"></script>
   <script src="TemplateData/js/UnityProgress.js"></script>
-  <script src="TemplateData/js/ambiarc.js?x=3"></script>
+  <script src="TemplateData/js/ambiarc.js?nc=<?php echo time(); ?>"></script>
   <script src="TemplateData/js/ambiarc-theme.js"></script>
   <script src="map/b14b32a200649d0650c1a6ff3db39cf4.js"></script>
   <script src="TemplateData/js/UnityCompatibility.js"></script>

@@ -1,0 +1,285 @@
+{
+    "type": "FeatureCollection",
+    "features": {
+        "0": {
+            "type": "Feature",
+            "properties": {
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "A/v Rm Gktest 0",
+                "location": "",
+                "type": "IconWithText",
+                "mapLabelId": 131,
+                "category": "Label",
+                "fontSize": 24,
+                "partialPath": "Information",
+                "showOnCreation": "true",
+                "showToolTip": "false",
+                "tooltipTitle": "",
+                "tooltipBody": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.5847291451,
+                    39.0473715807
+                ]
+            },
+            "user_properties": {
+                "accessible": "N",
+                "bldgName": "ACTIVITY RES CTR",
+                "bldgAbbr": "ARC",
+                "roomNo": "E-02B",
+                "newRoomNo": "E-02B",
+                "gkDisplay": "Y",
+                "gkDepartment": "",
+                "countz": "10 1"
+            }
+        },
+        "1": {
+            "type": "Feature",
+            "properties": {
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "Alt. Process Lab (photo)",
+                "location": "",
+                "type": "IconWithText",
+                "mapLabelId": 109,
+                "category": "Label",
+                "fontSize": 24,
+                "partialPath": "Information",
+                "showOnCreation": true,
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.5854591545,
+                    39.0432070182
+                ]
+            },
+            "user_properties": {
+                "accessible": "N",
+                "bldgName": "ACTIVITY RES CTR",
+                "bldgAbbr": "ARC",
+                "roomNo": "C-03",
+                "newRoomNo": "C-03",
+                "gkDisplay": "-",
+                "gkDepartment": "",
+                "countz": "10 2"
+            }
+        },
+        "3": {
+            "type": "Feature",
+            "properties": {
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "Asst To Dir",
+                "location": "",
+                "type": "IconWithText",
+                "mapLabelId": 216,
+                "category": "Label",
+                "fontSize": 24,
+                "partialPath": "Information",
+                "showOnCreation": true,
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.5884294241,
+                    39.0454421736
+                ]
+            },
+            "user_properties": {
+                "accessible": "N",
+                "bldgName": "ACTIVITY RES CTR",
+                "bldgAbbr": "ARC",
+                "roomNo": "MEZZ-1",
+                "newRoomNo": "-",
+                "gkDisplay": "-",
+                "gkDepartment": "",
+                "countz": "10 3"
+            }
+        },
+        "5": {
+            "type": "Feature",
+            "properties": {
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "Chem Lab",
+                "location": "",
+                "type": "IconWithText",
+                "mapLabelId": 119,
+                "category": "Label",
+                "fontSize": 24,
+                "partialPath": "Information",
+                "showOnCreation": true,
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.589620554,
+                    39.0421903347
+                ]
+            },
+            "user_properties": {
+                "accessible": "N",
+                "bldgName": "ACTIVITY RES CTR",
+                "bldgAbbr": "ARC",
+                "roomNo": "D-02",
+                "newRoomNo": "D-02",
+                "gkDisplay": "-",
+                "gkDepartment": "",
+                "countz": "10 4"
+            }
+        },
+        "6": {
+            "type": "Feature",
+            "properties": {
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "Computer Lab",
+                "location": "",
+                "type": "IconWithText",
+                "mapLabelId": 114,
+                "category": "Label",
+                "fontSize": 24,
+                "partialPath": "Information",
+                "showOnCreation": true,
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.5898619342,
+                    39.0437221336
+                ]
+            },
+            "user_properties": {
+                "accessible": "N",
+                "bldgName": "ACTIVITY RES CTR",
+                "bldgAbbr": "ARC",
+                "roomNo": "C-06",
+                "newRoomNo": "C-06",
+                "gkDisplay": "Y",
+                "gkDepartment": "",
+                "countz": "10 5"
+            }
+        },
+        "7": {
+            "type": "Feature",
+            "properties": {
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "Computer Lab (photo)",
+                "location": "",
+                "type": "IconWithText",
+                "mapLabelId": 127,
+                "category": "Label",
+                "fontSize": 24,
+                "partialPath": "Information",
+                "showOnCreation": true,
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.5849131116,
+                    39.047429273
+                ]
+            },
+            "user_properties": {
+                "accessible": "N",
+                "bldgName": "ACTIVITY RES CTR",
+                "bldgAbbr": "ARC",
+                "roomNo": "D-07",
+                "newRoomNo": "D-07",
+                "gkDisplay": "Y",
+                "gkDepartment": "",
+                "countz": "10 6"
+            }
+        },
+        "8": {
+            "type": "Feature",
+            "properties": {
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "Computer Rm",
+                "location": "",
+                "type": "IconWithText",
+                "mapLabelId": 93,
+                "category": "Label",
+                "fontSize": 24,
+                "partialPath": "Information",
+                "showOnCreation": true,
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.5855241767,
+                    39.0486261904
+                ]
+            },
+            "user_properties": {
+                "accessible": "N",
+                "bldgName": "ACTIVITY RES CTR",
+                "bldgAbbr": "ARC",
+                "roomNo": "A-6",
+                "newRoomNo": "A-06",
+                "gkDisplay": "-",
+                "gkDepartment": "",
+                "countz": "10 7"
+            }
+        },
+        "9": {
+            "type": "Feature",
+            "properties": {
+                "buildingId": "0001",
+                "floorId": "0001",
+                "label": "Computer Rm",
+                "location": "",
+                "type": "IconWithText",
+                "mapLabelId": 94,
+                "category": "Label",
+                "fontSize": 24,
+                "partialPath": "Information",
+                "showOnCreation": true,
+                "showToolTip": false,
+                "tooltipTitle": "",
+                "tooltipBody": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.5837127209,
+                    39.0454349447
+                ]
+            },
+            "user_properties": {
+                "accessible": "N",
+                "bldgName": "ACTIVITY RES CTR",
+                "bldgAbbr": "ARC",
+                "roomNo": "A-6",
+                "newRoomNo": "A-06",
+                "gkDisplay": "-",
+                "gkDepartment": "",
+                "countz": "10 8"
+            }
+        }
+    }
+}
