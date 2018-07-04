@@ -46,8 +46,8 @@
     	document.token = "<?php echo $_SESSION['token'] ?>";
     	var acad = '<?php $obj->fetchAcademicsArray() ?>';
     	document.acad = JSON.parse(acad);
-    	var dept = '<?php $obj->fetchDepartmentsArray() ?>';
-    	document.dept = JSON.parse(dept);
+    	var off = '<?php $obj->fetchOfficesArray() ?>';
+    	document.off = JSON.parse(off);
     </script>
 
   <script src="js/demo-ui.js"></script>
@@ -150,14 +150,15 @@
 
   <div class="nav-menu cat-wrap fade-out">
 	<div class="menu-category" style="background-color:#dde2e2"><span class="cat-box" data-type="buildings">buildings</span></div>
-	<div class="menu-category" style="background-color:#d6cecd"><span class="cat-box" data-type="schools">academics</span></div>
-	<div class="menu-category" style="background-color:#9a8e88"><span class="cat-box">offices</span></div>
+	<div class="menu-category" style="background-color:#d6cecd"><span class="cat-box" data-type="academics">academics</span></div>
+	<div class="menu-category" style="background-color:#9a8e88"><span class="cat-box" data-type="offices">offices</span></div>
 	<div class="menu-category" style="background-color:#52869f"><span class="cat-box">facilities</span></div>
 	<div class="menu-category" style="background-color:#f4581e"><span class="cat-box">accessibility</span></div>
   </div>
 
 	<div class="flyout buildings"></div>
-	<div class="flyout schools"></div>
+	<div class="flyout academics"></div>
+	<div class="flyout offices"></div>
 
 	<img class="search-btn" src="images/view.png">
 

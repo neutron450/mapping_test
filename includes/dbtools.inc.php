@@ -63,8 +63,8 @@ class DbTools {
 		echo json_encode($arr);
 	}
 
-	public function fetchDepartmentsArray() {
-		include_once('includes/departments.inc.php');
+	public function fetchOfficesArray() {
+		include_once('includes/offices.inc.php');
 		echo json_encode($arr);
 	}
 

@@ -42,10 +42,11 @@ var onAmbiarcLoaded = function() {
   //ambiarc.loadRemoteMapLabels("http://facilities/facilities/fetch").then((out) => {
   //ambiarc.loadRemoteMapLabels(full + '/points3.json').then((out) => {
 
-  	console.log('okay');
-
+  console.log('okay');
   //ambiarc.loadRemoteMapLabels("https://map.pratt.edu/facilities/web/facilities/get?hash="+hash+"&token="+document.token+"&webapp=display").then((out) => {
-  ambiarc.loadRemoteMapLabels("https://map.pratt.edu/facilities/web/facilities/get?token=65b22c76497f3b4c4436bf324e6154").then((out) => {
+  //var opt = { method: 'post', headers: new Headers({ 'Authorization': 'Basic '+btoa('user:pass'), 'Content-Type': 'application/x-www-form-urlencoded' }), };
+  //ambiarc.loadRemoteMapLabels("https://map.pratt.edu/facilities/web/facilities/get?token=65b22c76497f3b4c4436bf324e6154").then((out) => {
+  ambiarc.loadRemoteMapLabels("http://facilities.local/facilities/get?token=65b22c76497f3b4c4436bf324e6154").then((out) => {
 	MapLabels = out;
 	//ambiarc.mapStuff = out;
 	//console.log(out);

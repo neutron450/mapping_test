@@ -8,25 +8,29 @@
 		  }
 		});
 
-		var schoolString = '';
 		$(document.acad.academics).each(function(key, record){
 			window.schoolList = Object.keys(record);
 		});
-
+		var schoolString = '';
 		var subFly;
 		$(schoolList).each(function(key0, level0){
-			schoolString += '<span class="fly-box" data-school="'+level0+'" >'+level0+'</span>';
+			schoolString += '<span class="fly-box" data-cat="school" data-school="'+level0+'" >'+level0+'</span>';
 			subFly = '<div class="subfly" data-type="'+level0+'" >';
 			$(document.acad.academics[level0]).each(function(key1, level1){
 				for(var item in level1) {
-					subFly += '<span data-bldg="'+level1[item][0]+'" data-dept="'+item+'">'+item+'</span>';
+					subFly += '<span data-bldg="'+level1[item][0]+'" data-cat="dept" data-dept="'+item+'">'+item+'</span>';
 				}
 			});
 			subFly += '</div>';
 			$('body').append(subFly);
 		});
+		$('div.academics').append(schoolString);
 
-		$('div.schools').append(schoolString);
+		var offString = '';
+		$(document.off).each(function(key, level){
+			offString += '<span class="fly-box" data-cat="office"  data-office="'+level+'" >'+level+'</span>';
+		});
+		$('div.offices').append(offString);
 
 		$(document).on("click", "li.list-group-item", function(e){
 			console.log(e);
@@ -59,6 +63,7 @@
 			$('.reveal-horz').removeClass('reveal-horz');
 			var pos = $(this).closest('div').position();
 			var type = $(this).attr('data-type');
+			//alert(type);
 			$('div.'+type).css({left:pos.left});
 			$('div.'+type).addClass('reveal-horz');
 		});
@@ -69,9 +74,20 @@
 			var wid = $(this).closest('div').width();
 			var left = parseInt(pos.left + wid);
 			//alert(wid + ' -- ' + left);
-			var type = $(this).attr('data-school');
-			$("[data-type='"+type+"']").css({left:left});
-			$("[data-type='"+type+"']").addClass('reveal-horz');
+
+			var cat = $(this).attr('data-cat');
+			var type = $(this).attr('data-'+cat);
+
+			if (cat == 'school') {
+				$("[data-type='"+type+"']").css({left:left});
+				$("[data-type='"+type+"']").addClass('reveal-horz');
+			} else {
+
+				console.log('fly '+cat + ' ' +type);
+
+			}
+
+
 		});
 
 		$(document).on('click', '.click-capture', function() {
@@ -225,7 +241,7 @@
 		catBuildings = {};
 		for (var prop in lBldgs) {
 			bOptions[prop] = '<option value="'+prop+'">'+lBldgs[prop]+'</option>';
-			catBuildings[prop] = '<span>'+lBldgs[prop]+'</span>';
+			catBuildings[prop] = '<span data-cat="buildings">'+lBldgs[prop]+'</span>';
 		}
 		joined = $.map(bOptions, function(e){
 			return e;
