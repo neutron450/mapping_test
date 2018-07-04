@@ -1,14 +1,6 @@
 
 	$(document).ready(function(){
 
-		$(document).on("click", "li.list-group-item", function(e){
-			console.log(e);
-			var id = $(this).attr('data-id');
-			adjustMapFocus(e.currentTarget, id);
-			//$('.active').removeClass('active');
-			$(this).addClass('seen').siblings().removeClass('active');
-		});
-
 		$.extend($.expr[':'], {
 		  'containsi': function(elem, i, match, array) {
 			return (elem.textContent || elem.innerText || '').toLowerCase()
@@ -17,7 +9,7 @@
 		});
 
 		var schoolString = '';
-		$(document.aca.academics).each(function(key, record){
+		$(document.acad.academics).each(function(key, record){
 			window.schoolList = Object.keys(record);
 		});
 
@@ -25,7 +17,7 @@
 		$(schoolList).each(function(key0, level0){
 			schoolString += '<span class="fly-box" data-school="'+level0+'" >'+level0+'</span>';
 			subFly = '<div class="subfly" data-type="'+level0+'" >';
-			$(document.aca.academics[level0]).each(function(key1, level1){
+			$(document.acad.academics[level0]).each(function(key1, level1){
 				for(var item in level1) {
 					subFly += '<span data-bldg="'+level1[item][0]+'" data-dept="'+item+'">'+item+'</span>';
 				}
@@ -35,6 +27,14 @@
 		});
 
 		$('div.schools').append(schoolString);
+
+		$(document).on("click", "li.list-group-item", function(e){
+			console.log(e);
+			var id = $(this).attr('data-id');
+			adjustMapFocus(e.currentTarget, id);
+			//$('.active').removeClass('active');
+			$(this).addClass('seen').siblings().removeClass('active');
+		});
 
 		$(document).on('click', '.search-btn', function() {
 			$('.points').addClass('reveal-vert');

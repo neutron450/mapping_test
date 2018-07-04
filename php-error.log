@@ -631,3 +631,53 @@ Stack trace:
 [03-Jul-2018 17:46:33 UTC]  - - - - - - - - - - - - - - - - 
 [03-Jul-2018 17:58:47 UTC]  - - - - - - - - - - - - - - - - 
 [03-Jul-2018 17:59:58 UTC]  - - - - - - - - - - - - - - - - 
+[04-Jul-2018 13:26:20 UTC]  - - - - - - - - - - - - - - - - 
+[04-Jul-2018 14:06:36 UTC]  - - - - - - - - - - - - - - - - 
+[04-Jul-2018 14:11:53 UTC]  - - - - - - - - - - - - - - - - 
+[04-Jul-2018 14:11:53 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method DbTools::fetchDepartmentsArray() in /Users/iancampbell/Sites/nelson_demo/index.php:49
+Stack trace:
+#0 {main}
+  thrown in /Users/iancampbell/Sites/nelson_demo/index.php on line 49
+[04-Jul-2018 14:17:15 UTC]  - - - - - - - - - - - - - - - - 
+[04-Jul-2018 14:17:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method DbTools::fetchDepartmentsArray() in /Users/iancampbell/Sites/nelson_demo/index.php:49
+Stack trace:
+#0 {main}
+  thrown in /Users/iancampbell/Sites/nelson_demo/index.php on line 49
+[04-Jul-2018 14:18:30 UTC]  - - - - - - - - - - - - - - - - 
+[04-Jul-2018 14:18:30 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method DbTools::fetchDepartmentsArray() in /Users/iancampbell/Sites/nelson_demo/index.php:50
+Stack trace:
+#0 {main}
+  thrown in /Users/iancampbell/Sites/nelson_demo/index.php on line 50
+[04-Jul-2018 14:18:34 UTC]  - - - - - - - - - - - - - - - - 
+[04-Jul-2018 14:18:34 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method DbTools::fetchDepartmentsArray() in /Users/iancampbell/Sites/nelson_demo/index.php:50
+Stack trace:
+#0 {main}
+  thrown in /Users/iancampbell/Sites/nelson_demo/index.php on line 50
+[04-Jul-2018 14:20:42 UTC]  - - - - - - - - - - - - - - - - 
+[04-Jul-2018 14:20:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method DbTools::fetchDepartmentsArray() in /Users/iancampbell/Sites/nelson_demo/index.php:50
+Stack trace:
+#0 {main}
+  thrown in /Users/iancampbell/Sites/nelson_demo/index.php on line 50
+[04-Jul-2018 14:21:23 UTC]  - - - - - - - - - - - - - - - - 
+[04-Jul-2018 14:21:23 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method DbTools::fetchDepartmentsArray() in /Users/iancampbell/Sites/nelson_demo/index.php:50
+Stack trace:
+#0 {main}
+  thrown in /Users/iancampbell/Sites/nelson_demo/index.php on line 50
+[04-Jul-2018 14:21:27 UTC]  - - - - - - - - - - - - - - - - 
+[04-Jul-2018 14:21:27 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method DbTools::fetchDepartmentsArray() in /Users/iancampbell/Sites/nelson_demo/index.php:50
+Stack trace:
+#0 {main}
+  thrown in /Users/iancampbell/Sites/nelson_demo/index.php on line 50
+[04-Jul-2018 14:21:54 UTC]  - - - - - - - - - - - - - - - - 
+[04-Jul-2018 14:21:54 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method DbTools::fetchDepartmentsArray() in /Users/iancampbell/Sites/nelson_demo/index.php:50
+Stack trace:
+#0 {main}
+  thrown in /Users/iancampbell/Sites/nelson_demo/index.php on line 50
+[04-Jul-2018 14:22:30 UTC]  - - - - - - - - - - - - - - - - 
+[04-Jul-2018 14:22:30 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method DbTools::fetchDepartmentsArray() in /Users/iancampbell/Sites/nelson_demo/index.php:50
+Stack trace:
+#0 {main}
+  thrown in /Users/iancampbell/Sites/nelson_demo/index.php on line 50
+[04-Jul-2018 14:24:06 UTC]  - - - - - - - - - - - - - - - - 
+[04-Jul-2018 14:24:10 UTC]  - - - - - - - - - - - - - - - - 
+[04-Jul-2018 14:25:21 UTC]  - - - - - - - - - - - - - - - - 

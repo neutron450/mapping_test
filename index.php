@@ -44,8 +44,10 @@
 
     <script>
     	document.token = "<?php echo $_SESSION['token'] ?>";
-    	var aca = '<?php $obj->fetchAcademicArray() ?>';
-    	document.aca = JSON.parse(aca);
+    	var acad = '<?php $obj->fetchAcademicsArray() ?>';
+    	document.acad = JSON.parse(acad);
+    	var dept = '<?php $obj->fetchDepartmentsArray() ?>';
+    	document.dept = JSON.parse(dept);
     </script>
 
   <script src="js/demo-ui.js"></script>

@@ -15,7 +15,7 @@ class DbTools {
 
 	public function __construct() {
 
-		$dsn = 'mysql:host=' . $this->dbhost . ';dbname=' . $this->dbname;
+		echo $dsn = 'mysql:host=' . $this->dbhost . ';dbname=' . $this->dbname;
 		$options = array(
 			PDO::ATTR_PERSISTENT => true,
 			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
@@ -58,8 +58,13 @@ class DbTools {
 		}
 	}
 
-	public function fetchAcademicArray() {
-		include_once('includes/simplified.inc.php');
+	public function fetchAcademicsArray() {
+		include_once('includes/academics.inc.php');
+		echo json_encode($arr);
+	}
+
+	public function fetchDepartmentsArray() {
+		include_once('includes/departments.inc.php');
 		echo json_encode($arr);
 	}
 
