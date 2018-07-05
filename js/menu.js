@@ -57,6 +57,11 @@
 			//$('#gameContainer').css({'pointer-events':'auto'});
 			$('body').append('<div class="click-capture"></div>');
 
+			isFloorSelectorEnabled = false;
+			var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
+			ambiarc.viewFloorSelector('0001');
+			ambiarc.viewFloorSelector('0001');
+
 		});
 
 		$(document).on('click', '.cat-box', function() {
@@ -68,33 +73,10 @@
 			$('div.'+type).addClass('reveal-horz');
 		});
 
-		$(document).on('click', '.fly-box', function() {
-			$('.subfly').removeClass('reveal-horz');
-			var pos = $(this).closest('div').position();
-			var wid = $(this).closest('div').width();
-			var left = parseInt(pos.left + wid);
-			//alert(wid + ' -- ' + left);
-
-			var cat = $(this).attr('data-cat');
-			var type = $(this).attr('data-'+cat);
-
-			if (cat == 'school') {
-				$("[data-type='"+type+"']").css({left:left});
-				$("[data-type='"+type+"']").addClass('reveal-horz');
-			} else {
-
-				console.log('fly '+cat + ' ' +type);
-
-			}
-
-
-		});
-
 		$(document).on('click', '.click-capture', function() {
 			//collapseMenus();
 			resetMenus();
 		});
-
 
 		$('.flyout').mouseleave(function() {
 			var close = true;
@@ -131,6 +113,7 @@
 		$(document).keyup(function(e) {
 			if (e.keyCode === 27) {
 				resetMenus();
+				//hideAllPoints();
 			}
 		});
 
@@ -151,11 +134,62 @@
 			searchFunction();
 		});
 
+		$(document).on('click', '.fly-box', function(e) {
+
+			$('.subfly').removeClass('reveal-horz');
+			var pos = $(this).closest('div').position();
+			var wid = $(this).closest('div').width();
+			var left = parseInt(pos.left + wid);
+			//alert(wid + ' -- ' + left);
+
+			var cat = $(this).attr('data-cat');
+			var type = $(this).attr('data-'+cat);
+
+			if (cat == 'school') {
+
+				$("[data-type='"+type+"']").css({left:left});
+				$("[data-type='"+type+"']").addClass('reveal-horz');
+
+			} else {
+
+				console.log('fly '+cat + ' ' +type);
+
+				for(var item in mapStuff) {
+
+					if (mapStuff[item].user_properties.gkDepartment == '') {
+						continue;
+					}
+
+					console.log(type + ' +++ ' + (mapStuff[item].user_properties.gkDepartment));
+
+					if (mapStuff[item].user_properties.gkDepartment.indexOf(type) != -1) {
+
+						console.log(mapStuff[item]);
+						//var id = mapStuff[item].properties.mapLabelId;
+						var id = mapStuff[item].user_properties.recordId;
+
+						console.log(id);
+
+						adjustMapFocus(e.currentTarget, id);
+						collapseMenus();
+						break;
+
+					}
+				}
+			}
+
+		});
+
 		$(document).on("click", "div.subfly>span", function(e){
+
+			//hideAllPoints();
+
 			var bldg = $(this).attr('data-bldg');
 			var dept = $(this).attr('data-dept');
 			var schl = $(this).closest('div').attr('data-type');
 			//alert(bldg + ' - ' + dept + ' - ' + schl);
+
+			var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
 
 			if (dept == '') {
 
@@ -169,7 +203,9 @@
 					console.log(dept + ' +++ ' + (mapStuff[item].user_properties.gkDepartment));
 					if (mapStuff[item].user_properties.gkDepartment.indexOf(dept) != -1) {
 						console.log(mapStuff[item]);
-						var id = mapStuff[item].properties.mapLabelId;
+						//var id = mapStuff[item].properties.mapLabelId;
+						var id = mapStuff[item].user_properties.recordId;
+						//ambiarc.showMapLabel(id, true);
 						adjustMapFocus(e.currentTarget, id);
 						collapseMenus();
 						break;
@@ -177,7 +213,16 @@
 				}
 			}
 		});
+
 	});
+
+	function hideAllPoints() {
+		// 	var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
+		// 	$(mapStuff).each(function(){
+		// 		console.log(this.properties.mapLabelId);
+		// 		ambiarc.hideMapLabel(this.properties.mapLabelId, true);
+		// 	});
+	}
 
 	function resetMenus() {
 		$('.menu-open').removeClass('fade-out');
@@ -251,7 +296,6 @@
 			return e;
 		}).join('');
 		$('div.buildings').append(joined);
+		hideAllPoints();
 	}
-
-
 

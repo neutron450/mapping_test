@@ -694,3 +694,77 @@ Stack trace:
 [04-Jul-2018 17:24:40 UTC]  - - - - - - - - - - - - - - - - 
 [04-Jul-2018 17:46:20 UTC]  - - - - - - - - - - - - - - - - 
 [04-Jul-2018 17:53:29 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 12:30:01 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 12:32:43 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 12:36:24 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 13:16:05 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 13:16:30 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 13:17:30 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 13:18:50 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 13:32:46 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 13:41:25 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 13:42:26 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 13:43:07 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 13:44:04 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 13:45:29 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 13:47:35 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 13:48:05 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 13:56:23 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 13:56:23 UTC] PHP Warning:  PDO::__construct(): MySQL server has gone away in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 25
+[05-Jul-2018 13:58:05 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 13:59:24 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 14:00:11 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 14:02:13 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 14:06:27 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 14:08:35 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 14:13:12 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 14:15:04 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 14:16:13 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 14:17:25 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 14:22:34 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 14:23:44 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 14:26:48 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 14:32:30 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 14:40:54 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 14:56:24 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 15:35:47 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 15:35:47 UTC] PHP Warning:  PDO::__construct(): MySQL server has gone away in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 25
+[05-Jul-2018 15:52:53 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 16:00:09 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 16:00:09 UTC] PHP Warning:  PDO::__construct(): MySQL server has gone away in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 25
+[05-Jul-2018 16:02:12 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 16:07:03 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 16:12:25 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 16:12:25 UTC] PHP Notice:  Undefined variable: dsn in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 25
+[05-Jul-2018 16:12:25 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php:50
+Stack trace:
+#0 /Users/iancampbell/Sites/nelson_demo/index.php(17): DbTools->checkToken('86cc8d57a23e229...')
+#1 {main}
+  thrown in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 50
+[05-Jul-2018 16:12:50 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 16:13:49 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 16:15:54 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 16:31:45 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 16:33:05 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 16:39:40 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 16:49:52 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 16:55:52 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 16:55:52 UTC] PHP Warning:  PDO::__construct(): MySQL server has gone away in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 25
+[05-Jul-2018 16:57:22 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 18:12:07 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 18:15:39 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 18:18:18 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 18:18:18 UTC] PHP Warning:  PDO::__construct(): MySQL server has gone away in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 25
+[05-Jul-2018 18:20:09 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 18:21:29 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 18:21:29 UTC] PHP Warning:  PDO::__construct(): MySQL server has gone away in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 25
+[05-Jul-2018 18:47:16 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 18:49:49 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 18:51:29 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 18:51:29 UTC] PHP Warning:  PDO::__construct(): MySQL server has gone away in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 25
+[05-Jul-2018 19:25:35 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 19:33:11 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 19:45:31 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 19:45:31 UTC] PHP Warning:  PDO::__construct(): MySQL server has gone away in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 25
+[05-Jul-2018 19:56:01 UTC]  - - - - - - - - - - - - - - - - 
+[05-Jul-2018 19:56:01 UTC] PHP Warning:  PDO::__construct(): MySQL server has gone away in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 25

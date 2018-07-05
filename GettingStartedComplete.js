@@ -34,19 +34,16 @@ var onAmbiarcLoaded = function() {
     adjustMapFocus($("#" + event.detail)[0], event.detail)
   });
 
-	var hash = Math.random().toString(36).substr(2, 5);
-
   //load MapLabels from a preprovided map file
   var full = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + (window.location.pathname ? window.location.pathname.substring(0, window.location.pathname.lastIndexOf("/")) : '');
+  var hash = Math.random().toString(36).substr(2, 5);
+  //var options = { method: 'post', headers: new Headers({ 'Authorization': 'Basic '+btoa('user:pass'), 'Content-Type': 'application/x-www-form-urlencoded' }), };
   //ambiarc.loadRemoteMapLabels(full + "/tutorial_map_labels.json").then((out) => {});
   //ambiarc.loadRemoteMapLabels("http://facilities/facilities/fetch").then((out) => {
   //ambiarc.loadRemoteMapLabels(full + '/points3.json').then((out) => {
-
-  console.log('okay');
-  //ambiarc.loadRemoteMapLabels("https://map.pratt.edu/facilities/web/facilities/get?hash="+hash+"&token="+document.token+"&webapp=display").then((out) => {
-  //var opt = { method: 'post', headers: new Headers({ 'Authorization': 'Basic '+btoa('user:pass'), 'Content-Type': 'application/x-www-form-urlencoded' }), };
+  ambiarc.loadRemoteMapLabels("https://map.pratt.edu/facilities/web/facilities/get?hash="+hash+"&token="+document.token+"&webapp=display").then((out) => {
   //ambiarc.loadRemoteMapLabels("https://map.pratt.edu/facilities/web/facilities/get?token=65b22c76497f3b4c4436bf324e6154").then((out) => {
-  ambiarc.loadRemoteMapLabels("http://facilities.local/facilities/get?token=65b22c76497f3b4c4436bf324e6154").then((out) => {
+  //ambiarc.loadRemoteMapLabels("http://facilities.local/facilities/get?token=65b22c76497f3b4c4436bf324e6154").then((out) => {
 	MapLabels = out;
 	//ambiarc.mapStuff = out;
 	//console.log(out);

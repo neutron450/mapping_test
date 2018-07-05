@@ -100,8 +100,6 @@
 -->
 
         <div class="tab points" style="">
-        	<!--<div class="filter" contenteditable="true">filter</div>-->
-
 			<div class="selectdiv ">
 			  <label>
 				  <select class="menu-buildings">

@@ -15,7 +15,7 @@ class DbTools {
 
 	public function __construct() {
 
-		echo $dsn = 'mysql:host=' . $this->dbhost . ';dbname=' . $this->dbname;
+		$dsn = 'mysql:host=' . $this->dbhost . ';dbname=' . $this->dbname;
 		$options = array(
 			PDO::ATTR_PERSISTENT => true,
 			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
@@ -32,7 +32,8 @@ class DbTools {
 
 		try {
 			$token = bin2hex(random_bytes(15));
-			echo 'insert token: '.$sql = "INSERT INTO tokens (token) VALUES ('$token')";
+			//echo 'insert token: '.$sql = "INSERT INTO tokens (token) VALUES ('$token')";
+			$sql = "INSERT INTO tokens (token) VALUES ('$token')";
 			$this->dbh->exec($sql);
 			//echo 'setting token : '.$_SESSION['token'] = $token;
 			$_SESSION['token'] = $token;

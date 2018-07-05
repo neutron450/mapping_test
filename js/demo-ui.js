@@ -18,6 +18,7 @@
      $("#currentFloor").text("Exterior");
    }
    var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
+   //alert(mainBldgID);
    ambiarc.viewFloorSelector(mainBldgID);
  };
 
@@ -49,7 +50,7 @@
  //Event callback handlers
  var onRightMouseDown = function(event) {
 
-   console.log("Ambiarc received a RightMouseDown event");
+   //console.log("Ambiarc received a RightMouseDown event");
  }
 
  var onFloorSelected = function(event) {
