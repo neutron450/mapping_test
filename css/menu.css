@@ -156,6 +156,14 @@ div.flyout span:hover, div.subfly span:hover {
 	text-decoration: underline;
 }
 
+.warn {
+	color : #900;
+}
+
+.okay {
+	color: #060;
+}
+
 
 
 

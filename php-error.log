@@ -768,3 +768,40 @@ Stack trace:
 [05-Jul-2018 19:45:31 UTC] PHP Warning:  PDO::__construct(): MySQL server has gone away in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 25
 [05-Jul-2018 19:56:01 UTC]  - - - - - - - - - - - - - - - - 
 [05-Jul-2018 19:56:01 UTC] PHP Warning:  PDO::__construct(): MySQL server has gone away in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 25
+[06-Jul-2018 13:05:54 UTC]  - - - - - - - - - - - - - - - - 
+[06-Jul-2018 13:13:34 UTC]  - - - - - - - - - - - - - - - - 
+[06-Jul-2018 13:25:32 UTC]  - - - - - - - - - - - - - - - - 
+[06-Jul-2018 14:13:40 UTC]  - - - - - - - - - - - - - - - - 
+[06-Jul-2018 14:31:29 UTC]  - - - - - - - - - - - - - - - - 
+[06-Jul-2018 14:31:29 UTC] PHP Warning:  PDO::__construct(): MySQL server has gone away in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 25
+[06-Jul-2018 14:33:04 UTC]  - - - - - - - - - - - - - - - - 
+[06-Jul-2018 14:37:07 UTC]  - - - - - - - - - - - - - - - - 
+[06-Jul-2018 14:37:35 UTC]  - - - - - - - - - - - - - - - - 
+[06-Jul-2018 15:19:10 UTC]  - - - - - - - - - - - - - - - - 
+[06-Jul-2018 15:22:14 UTC]  - - - - - - - - - - - - - - - - 
+[06-Jul-2018 15:22:30 UTC]  - - - - - - - - - - - - - - - - 
+[06-Jul-2018 15:24:06 UTC]  - - - - - - - - - - - - - - - - 
+[06-Jul-2018 15:35:16 UTC]  - - - - - - - - - - - - - - - - 
+[06-Jul-2018 15:40:13 UTC]  - - - - - - - - - - - - - - - - 
+[06-Jul-2018 15:58:28 UTC]  - - - - - - - - - - - - - - - - 
+[06-Jul-2018 15:58:28 UTC] PHP Warning:  PDO::__construct(): MySQL server has gone away in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 25
+[06-Jul-2018 16:09:21 UTC]  - - - - - - - - - - - - - - - - 
+[06-Jul-2018 16:15:28 UTC]  - - - - - - - - - - - - - - - - 
+[07-Jul-2018 14:09:44 UTC]  - - - - - - - - - - - - - - - - 
+[07-Jul-2018 14:10:14 UTC] PHP Fatal error:  Uncaught Error: Call to a member function exec() on null in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php:37
+Stack trace:
+#0 /Users/iancampbell/Sites/nelson_demo/index.php(15): DbTools->createToken()
+#1 {main}
+  thrown in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 37
+[07-Jul-2018 14:12:37 UTC]  - - - - - - - - - - - - - - - - 
+[07-Jul-2018 14:29:12 UTC]  - - - - - - - - - - - - - - - - 
+[07-Jul-2018 15:18:25 UTC]  - - - - - - - - - - - - - - - - 
+[07-Jul-2018 15:19:24 UTC]  - - - - - - - - - - - - - - - - 
+[07-Jul-2018 15:21:27 UTC]  - - - - - - - - - - - - - - - - 
+[07-Jul-2018 15:24:33 UTC]  - - - - - - - - - - - - - - - - 
+[07-Jul-2018 15:26:04 UTC]  - - - - - - - - - - - - - - - - 
+[07-Jul-2018 15:29:15 UTC]  - - - - - - - - - - - - - - - - 
+[07-Jul-2018 15:30:27 UTC]  - - - - - - - - - - - - - - - - 
+[07-Jul-2018 15:32:05 UTC]  - - - - - - - - - - - - - - - - 
+[07-Jul-2018 15:33:30 UTC]  - - - - - - - - - - - - - - - - 
+[07-Jul-2018 15:41:25 UTC]  - - - - - - - - - - - - - - - - 

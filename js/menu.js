@@ -8,30 +8,6 @@
 		  }
 		});
 
-		$(document.acad.academics).each(function(key, record){
-			window.schoolList = Object.keys(record);
-		});
-		var schoolString = '';
-		var subFly;
-		$(schoolList).each(function(key0, level0){
-			schoolString += '<span class="fly-box" data-cat="school" data-school="'+level0+'" >'+level0+'</span>';
-			subFly = '<div class="subfly" data-type="'+level0+'" >';
-			$(document.acad.academics[level0]).each(function(key1, level1){
-				for(var item in level1) {
-					subFly += '<span data-bldg="'+level1[item][0]+'" data-cat="dept" data-dept="'+item+'">'+item+'</span>';
-				}
-			});
-			subFly += '</div>';
-			$('body').append(subFly);
-		});
-		$('div.academics').append(schoolString);
-
-		var offString = '';
-		$(document.off).each(function(key, level){
-			offString += '<span class="fly-box" data-cat="office"  data-office="'+level+'" >'+level+'</span>';
-		});
-		$('div.offices').append(offString);
-
 		$(document).on("click", "li.list-group-item", function(e){
 			console.log(e);
 			var id = $(this).attr('data-id');
@@ -46,6 +22,10 @@
 			$('.reveal-horz').removeClass('reveal-horz');
 			$('.search-btn').fadeOut();
 			$('body').append('<div class="click-capture"></div>');
+			isFloorSelectorEnabled = false;
+			var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
+			ambiarc.viewFloorSelector('0001');
+			ambiarc.viewFloorSelector('0001');
 		});
 
 		$(document).on('click', '.menu-open', function() {
@@ -56,12 +36,10 @@
 			//$('*').css({'pointer-events':'auto'});
 			//$('#gameContainer').css({'pointer-events':'auto'});
 			$('body').append('<div class="click-capture"></div>');
-
 			isFloorSelectorEnabled = false;
 			var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
 			ambiarc.viewFloorSelector('0001');
 			ambiarc.viewFloorSelector('0001');
-
 		});
 
 		$(document).on('click', '.cat-box', function() {
@@ -114,6 +92,10 @@
 			if (e.keyCode === 27) {
 				resetMenus();
 				//hideAllPoints();
+				isFloorSelectorEnabled = false;
+				var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
+				ambiarc.viewFloorSelector('0001');
+				ambiarc.viewFloorSelector('0001');
 			}
 		});
 
@@ -267,7 +249,22 @@
 		}
 	}
 
-	function buildMapMenu(MapLabels){
+	function searchPropertiesGkDept(find){
+		for(var item in mapStuff) {
+			if (mapStuff[item].user_properties.gkDepartment == '') {
+				continue;
+			}
+			if (mapStuff[item].user_properties.gkDepartment.indexOf(find) != -1) {
+				console.log(mapStuff[item]);
+				return true;
+				break;
+			}
+		}
+		//console.log(find + ' +++ ' + (mapStuff[item].user_properties.gkDepartment));
+		return false;
+	}
+
+	function setupMenuBuildings(MapLabels){
 		lButtons = {};
 		lBldgs = {};
 		$(MapLabels).each(function(key, record){
@@ -298,4 +295,59 @@
 		$('div.buildings').append(joined);
 		hideAllPoints();
 	}
+
+	function setupMenuAcademics() {
+
+		$(document.acad.academics).each(function(key, record){
+			window.schoolList = Object.keys(record);
+		});
+		var schoolString = '';
+		var subFly;
+		$(schoolList).each(function(key0, level0){
+			schoolString += '<span class="fly-box" data-cat="school" data-school="'+level0+'" >'+level0+'</span>';
+			subFly = '<div class="subfly" data-type="'+level0+'" >';
+			$(document.acad.academics[level0]).each(function(key1, level1){
+				for(var item in level1) {
+
+					var menuHightlight = 'warn';
+					if (searchPropertiesGkDept(item)) {
+						menuHightlight = '';
+					}
+
+					subFly += '<span class="'+menuHightlight+'" data-bldg="'+level1[item][0]+'" data-cat="dept" data-dept="'+item+'">'+item+'</span>';
+				}
+			});
+			subFly += '</div>';
+			$('body').append(subFly);
+		});
+		$('div.academics').append(schoolString);
+
+	}
+
+	function setupMenuOffices() {
+		var offString = '';
+		$(document.off).each(function(key, office){
+			var menuHightlight = 'warn';
+			if (searchPropertiesGkDept(office)) {
+				menuHightlight = '';
+			}
+			offString += '<span class="fly-box '+menuHightlight+'" data-cat="office"  data-office="'+office+'" >'+office+'</span>';
+		});
+		$('div.offices').append(offString);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -4,13 +4,13 @@ function adjustMapFocus(target, mapLabelId) {
   var i, tablinks;
 
   // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
+	//   tablinks = document.getElementsByClassName("tablinks");
+	//   for (i = 0; i < tablinks.length; i++) {
+	//     tablinks[i].className = tablinks[i].className.replace(" active", "");
+	//   }
 
   // Show the current tab, and add an "active" class to the button that opened the tab
-  if (target != undefined) target.className += " active";
+  ///if (target != undefined) target.className += " active";
   // Retrieve ambiarc object
   var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
 
@@ -44,12 +44,14 @@ var onAmbiarcLoaded = function() {
   ambiarc.loadRemoteMapLabels("https://map.pratt.edu/facilities/web/facilities/get?hash="+hash+"&token="+document.token+"&webapp=display").then((out) => {
   //ambiarc.loadRemoteMapLabels("https://map.pratt.edu/facilities/web/facilities/get?token=65b22c76497f3b4c4436bf324e6154").then((out) => {
   //ambiarc.loadRemoteMapLabels("http://facilities.local/facilities/get?token=65b22c76497f3b4c4436bf324e6154").then((out) => {
+
 	MapLabels = out;
-	//ambiarc.mapStuff = out;
-	//console.log(out);
-	//alert('okay');
 	window.mapStuff = out;
-	buildMapMenu(out);
+
+	setupMenuBuildings(out);
+	setupMenuAcademics();
+	setupMenuOffices();
+
   });
 
   InternalOnAmbiarcLoaded();
