@@ -15,6 +15,7 @@ class DbTools {
 
 	public function __construct() {
 
+		//echo '<br>'.$dsn = 'mysql:host=' . $this->dbhost . ';dbname=' . $this->dbname;
 		$dsn = 'mysql:host=' . $this->dbhost . ';dbname=' . $this->dbname;
 		$options = array(
 			PDO::ATTR_PERSISTENT => true,
@@ -32,24 +33,31 @@ class DbTools {
 
 		try {
 			$token = bin2hex(random_bytes(15));
-			//echo 'insert token: '.$sql = "INSERT INTO tokens (token) VALUES ('$token')";
-			$sql = "INSERT INTO tokens (token) VALUES ('$token')";
+			//echo '<br>insert token: '.$sql = "INSERT INTO `tokens` (`id`, `token`, `create_date`) VALUES (NULL, '".$token."', CURRENT_TIMESTAMP)";
+			$sql = "INSERT INTO `tokens` (`id`, `token`, `create_date`) VALUES (NULL, '".$token."', CURRENT_TIMESTAMP)";
 			$this->dbh->exec($sql);
 			//echo 'setting token : '.$_SESSION['token'] = $token;
 			$_SESSION['token'] = $token;
 		} catch(PDOException $e) {
 			echo $sql . "<br>" . $e->getMessage();
+			return false;
 		}
+
+		return true;
 	}
 
 	public function checkToken($token) {
 
 		try {
-			//echo 'check token: '.$sql = "SELECT * FROM tokens WHERE token = '$token'";
+			//echo '<br>check token: '.$sql = "SELECT * FROM tokens WHERE token = '$token'";
 			$sql = "SELECT * FROM tokens WHERE token = '$token'";
 			$stmt = $this->dbh->prepare($sql);
 			$stmt->execute();
 			$rows = $stmt->fetch();
+
+			echo '<br>';
+			print_r($rows);
+
 			if ($rows['token']) {
 				return true;
 			}

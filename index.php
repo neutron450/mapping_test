@@ -8,16 +8,25 @@
 	error_log( ' - - - - - - - - - - - - - - - - ' );
 
 	session_start();
+
+	//unset($_SESSION['token']);
+	//echo '<br>';
+	//print_r($_SESSION);
+
 	//echo __DIR__;
 	include_once('includes/dbtools.inc.php');
 	$obj = new DbTools;
 	if (!@$_SESSION['token']) {
-		$obj->createToken();
+		if($obj->createToken()) {
+			echo '<br>token created';
+		} else {
+			echo '<br>error, token not created';
+		}
 	} else {
 		if ($obj->checkToken($_SESSION['token'])) {
 			//is okay
 		} else {
-			echo 'no token';
+			echo '<br>error, no token found';
 		}
 	}
 	//die();
@@ -37,17 +46,21 @@
   <script src="TemplateData/js/jquery-2.2.4.min.js"></script>
   <script src="TemplateData/js/bootstrap.min.js"></script>
   <script src="js/menu.js?nc=<?php echo time(); ?>"></script>
+  <script src="js/jquery.cookie.js?nc=<?php echo time(); ?>"></script>
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <script>
-    	document.token = "<?php echo $_SESSION['token'] ?>";
+    	//document.token = "<?php echo $_SESSION['token'] ?>";
     	var acad = '<?php $obj->fetchAcademicsArray() ?>';
     	document.acad = JSON.parse(acad);
     	var off = '<?php $obj->fetchOfficesArray() ?>';
     	document.off = JSON.parse(off);
+    	$.cookie('token', "<?php echo $_SESSION['token'] ?>", { expires: 1, secure: false });
+    	//$.cookie('token', token, { expires: 1, path: '/', domain: 'jquery.com', secure: true });
+
     </script>
 
   <script src="js/demo-ui.js"></script>
