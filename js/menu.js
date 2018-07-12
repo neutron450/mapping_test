@@ -17,6 +17,7 @@
 		});
 
 		$(document).on('click', '.search-btn', function() {
+			$('.showpopmap').removeClass('showpopmap');
 			$('.points').addClass('reveal-vert');
 			$('.menu-open').addClass('fade-out');
 			$('.reveal-horz').removeClass('reveal-horz');
@@ -29,6 +30,7 @@
 		});
 
 		$(document).on('click', '.menu-open', function() {
+			$('.showpopmap').removeClass('showpopmap');
 			$('.menu-open').addClass('fade-out');
 			$('.cat-wrap').removeClass('fade-out');
 			$('.search-btn').fadeOut();
@@ -53,6 +55,7 @@
 
 		$(document).on('click', '.click-capture', function() {
 			//collapseMenus();
+			$('.showpopmap').removeClass('showpopmap');
 			resetMenus();
 		});
 
@@ -90,6 +93,7 @@
 
 		$(document).keyup(function(e) {
 			if (e.keyCode === 27) {
+				$('.showpopmap').removeClass('showpopmap');
 				resetMenus();
 				//hideAllPoints();
 				isFloorSelectorEnabled = false;
@@ -102,6 +106,7 @@
 		$(document).on('click', '*', function(e) {
 			console.log(e.target.nodeName);
 			if (e.target.nodeName=='BODY' || e.target.nodeName=='HTML') {
+				$('.showpopmap').removeClass('showpopmap');
 				resetMenus();
 			}
 		});
@@ -164,9 +169,17 @@
 
 		$(document).on("click", "div.subfly>span", function(e){
 
+			//data-bldg="FLSH"
 			//hideAllPoints();
 
 			var bldg = $(this).attr('data-bldg');
+			window.bldg = bldg;
+
+			if (bldg == 'FLSH' || bldg == 'CRR') {
+				doPopupMap(bldg);
+				return true;
+			}
+
 			var dept = $(this).attr('data-dept');
 			var schl = $(this).closest('div').attr('data-type');
 			//alert(bldg + ' - ' + dept + ' - ' + schl);
@@ -196,7 +209,53 @@
 			}
 		});
 
+		/// clean up the popup maps
+		setTimeout(function(){
+
+			//console.log('clean up pop map');
+			//$(document).remove('.place-card');
+			//$('#gmap_canvas').contents().find('.place-card').remove();
+			//var iframe = document.getElementById("gmap_canvas");
+			//var elmnt = iframe.contentWindow.document.findElementByAttribute("class", "place-card");
+			//elmnt.style.display = "none";
+
+		}, 2000);
+
 	});
+
+	function doPopupMap() {
+		$('.showpopmap').removeClass('showpopmap').promise().then(function(){
+			//console.log(bldg);
+
+			var wid = $(window).width(); // New width
+			var hei = $(window).height(); // New height
+
+			wid = parseInt(wid * .8);
+			hei = parseInt(hei * .8);
+
+			if (wid > 800) {
+				wid = 800;
+			}
+			if (hei > 800) {
+				hei = 800;
+			}
+
+			$('div.mapouter').attr('width',parseInt(wid+50));
+			$('div.mapouter').attr('height',parseInt(hei+50));
+
+			$('div.mapouter').find('iframe').attr('width',wid);
+			$('div.mapouter').find('iframe').attr('height',hei);
+
+			if (bldg=='CRR') {
+				window.bmap = 'https://www.bing.com/maps/embed?h='+hei+'&w='+wid+'&cp=40.692685644753745~-73.96787007753449&lvl=15&typ=d&sty=r&src=SHELL&FORM=MBEDV8';
+				//window.bmap = 'includes/filterframes.php';
+				$('div.mapouter').find('iframe').attr('src',bmap);
+			}
+
+			$('div.map-'+bldg).addClass('showpopmap');
+		});
+		collapseMenus();
+	}
 
 	function hideAllPoints() {
 		// 	var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
@@ -212,6 +271,11 @@
 		$('.reveal-horz').removeClass('reveal-horz');
 		$('.reveal-vert').removeClass('reveal-vert');
 		$('.search-btn').fadeIn();
+
+		if ($('.showpopmap').css('opacity') > 0) {
+			return true;
+		}
+
 		$('body').css({'pointer-events':'none'});
 		$('.click-capture').remove();
 	}

@@ -1,0 +1,11 @@
+[11-Jul-2018 19:16:43 UTC]  - - - - - - - - - - - - - - - - 
+[11-Jul-2018 19:16:44 UTC]  - - - - - - - - - - - - - - - - 
+[11-Jul-2018 19:19:46 UTC]  - - - - - - - - - - - - - - - - 
+[11-Jul-2018 19:26:59 UTC]  - - - - - - - - - - - - - - - - 
+[11-Jul-2018 19:33:10 UTC]  - - - - - - - - - - - - - - - - 
+[11-Jul-2018 19:33:10 UTC] PHP Notice:  Undefined variable: lat in /Users/iancampbell/Sites/nelson_demo/includes/filterframes.php on line 60
+[11-Jul-2018 19:33:10 UTC] PHP Notice:  Undefined variable: long in /Users/iancampbell/Sites/nelson_demo/includes/filterframes.php on line 60
+[11-Jul-2018 19:35:21 UTC]  - - - - - - - - - - - - - - - - 
+[11-Jul-2018 19:35:21 UTC] PHP Notice:  Undefined variable: lat in /Users/iancampbell/Sites/nelson_demo/includes/filterframes.php on line 60
+[11-Jul-2018 19:35:21 UTC] PHP Notice:  Undefined variable: long in /Users/iancampbell/Sites/nelson_demo/includes/filterframes.php on line 60
+[11-Jul-2018 19:36:21 UTC]  - - - - - - - - - - - - - - - - 

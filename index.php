@@ -42,6 +42,7 @@
   <link rel="stylesheet" media="all" href="css/demo-ui.css" />
   <link rel="stylesheet" media="all" href="css/tab_style.css?nc=<?php echo time(); ?>" />
   <link rel="stylesheet" media="all" href="css/menu.css?nc=<?php echo time(); ?>" />
+  <link rel="stylesheet" media="all" href="css/pop_maps.css?nc=<?php echo time(); ?>" />
 
   <script src="TemplateData/js/jquery-2.2.4.min.js"></script>
   <script src="TemplateData/js/bootstrap.min.js"></script>
@@ -173,9 +174,13 @@
 
 	<img class="search-btn" src="images/view.png">
 
-	<script>
+	<div class="mapouter map-bfda map-flsh ">
+		<iframe width="" height="" frameborder="0" src="" scrolling="no"></iframe>
+	</div>
 
-	</script>
+	<div class="mapouter map-crr ">
+		<iframe width="" height="" frameborder="0" src="" scrolling="no"></iframe>
+	</div>
 
 </body>
 

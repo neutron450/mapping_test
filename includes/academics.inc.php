@@ -93,8 +93,8 @@ $arr = array();
 
 @$arr['academics']['research and centers']['Pratt Center for Community Development'] = ['MH'];///
 @$arr['academics']['research and centers']['Center for Art, Design, and Community Engagement K-12'] = ['MAIN'];///
-@$arr['academics']['research and centers']['Brooklyn Fashion and Design Accelerator (BF+DA)'] = ['FLSH'];
-@$arr['academics']['research and centers']['The Consortium for Research and Robotics'] = ['HH'];
+@$arr['academics']['research and centers']['Brooklyn Fashion and Design Accelerator (BF+DA)'] = ['FLSH'];///
+@$arr['academics']['research and centers']['The Consortium for Research and Robotics'] = ['CRR'];///
 @$arr['academics']['research and centers']['Spatial Analysis and Visualization Initiative'] = ['ISC'];
 @$arr['academics']['research and centers']['Additional Research, Centers and Labs'] = ['NH'];
 

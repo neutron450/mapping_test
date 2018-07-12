@@ -36,9 +36,25 @@ var onAmbiarcLoaded = function() {
 
   //load MapLabels from a preprovided map file
   var full = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + (window.location.pathname ? window.location.pathname.substring(0, window.location.pathname.lastIndexOf("/")) : '');
+
   var hash = Math.random().toString(36).substr(2, 5);
-  var options = { method: 'post', headers: new Headers({ 'Authorization': 'Basic '+btoa('user:pass'), 'Content-Type': 'application/x-www-form-urlencoded' }), };
+
+  //var options = { method: 'post', headers: new Headers({ 'Authorization': 'Basic '+btoa('user:pass'), 'Content-Type': 'application/x-www-form-urlencoded' }), };
+
   var token = $.cookie('token');
+
+  var options = {
+		method: 'POST',
+		mode: 'no-cors',
+		redirect: 'follow',
+		headers: new Headers({
+			'Accept': 'application/json',
+			'Content-Type': 'application/json',
+			'X-XSRF-TOKEN': token
+		}),
+		body: JSON.stringify({a: 1, b: 'Textual content'})
+	}
+
   //alert(token);
   //ambiarc.loadRemoteMapLabels(full + "/tutorial_map_labels.json").then((out) => {});
   //ambiarc.loadRemoteMapLabels("http://facilities/facilities/fetch").then((out) => {
