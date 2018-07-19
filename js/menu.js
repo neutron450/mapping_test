@@ -11,7 +11,15 @@
 		$(document).on("click", "li.list-group-item", function(e){
 			console.log(e);
 			var id = $(this).attr('data-id');
+			//console.log(mapStuff[id]);
+			//var recId = mapStuff[id].user_properties.recordId;
+			//alert(id + ' - ' + recId);
 			adjustMapFocus(e.currentTarget, id);
+
+			doPoiImage(id);
+
+			zoomInHandler();
+
 			//$('.active').removeClass('active');
 			$(this).addClass('seen').siblings().removeClass('active');
 		});
@@ -223,7 +231,13 @@
 
 	});
 
+	function doPoiImage(id) {
+		$('.poi-box').remove();
+		$('body').append('<div class="poi-box"><img src="images/pois/'+id+'.jpg"></div>');
+	}
+
 	function doPopupMap() {
+		$('.poi-box').remove();
 		$('.showpopmap').removeClass('showpopmap').promise().then(function(){
 			//console.log(bldg);
 
@@ -266,6 +280,7 @@
 	}
 
 	function resetMenus() {
+		$('.poi-box').remove();
 		$('.menu-open').removeClass('fade-out');
 		$('.cat-wrap').addClass('fade-out');
 		$('.reveal-horz').removeClass('reveal-horz');
@@ -328,13 +343,42 @@
 		return false;
 	}
 
+	function checkImage(imgUrl) {
+
+		var imgExt = 'noImg';
+
+		var http = new XMLHttpRequest();
+		http.open('HEAD', imgUrl, false);
+		http.send();
+
+		console.log(http.status);
+
+		if (http.status == 404) {
+			return 'noImg';
+		} else {
+			return 'hasImg';
+		}
+
+	}
+
 	function setupMenuBuildings(MapLabels){
 		lButtons = {};
 		lBldgs = {};
 		$(MapLabels).each(function(key, record){
+
+			var imgUrl = 'images/pois/'+record.properties.mapLabelId+'.jpg';
+
+			var imgExt = checkImage(imgUrl);
+
+			console.log(imgExt);
+
+			if (record.properties.label == 'Sculpture') {
+				record.properties.label = record.user_properties.gkArtName;
+			}
+
 			lBldgs[record.user_properties.bldgAbbr] = record.user_properties.bldgName;
 			lButtons[record.properties.mapLabelId] = '<li  id="'+record.properties.mapLabelId+'"  data-id="'+record.properties.mapLabelId+'"  data-building="'+record.user_properties.bldgAbbr+'"  class="list-group-item"  >';
-			lButtons[record.properties.mapLabelId] += '<div class="li-col li-label"><span>'+record.properties.label+'</span></div>';
+			lButtons[record.properties.mapLabelId] += '<div class="li-col li-label"><span class="'+imgExt+'">'+record.properties.label+'</span></div>';
 			lButtons[record.properties.mapLabelId] += '<div class="li-col li-bldg"><span>'+record.user_properties.bldgAbbr+'</span></div>';
 			lButtons[record.properties.mapLabelId] += '<div class="li-col li-room"><span>'+record.user_properties.newRoomNo+'</span></div></li>';
 		});

@@ -17,7 +17,10 @@ function adjustMapFocus(target, mapLabelId) {
   //alert(mapLabelId);
 
   // call the focusOnMapLabel with the map label id
-  ambiarc.focusOnMapLabel(mapLabelId);
+  ambiarc.focusOnMapLabel(mapLabelId, 2);
+
+  //ambiarc.zoomInHandler();
+
 }
 
 //This method is called when the iframe loads, it subscribes onAmbiarcLoaded so we know when the map loads

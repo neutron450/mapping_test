@@ -55,8 +55,8 @@ class DbTools {
 			$stmt->execute();
 			$rows = $stmt->fetch();
 
-			echo '<br>';
-			print_r($rows);
+			//echo '<br>';
+			//print_r($rows);
 
 			if ($rows['token']) {
 				return true;

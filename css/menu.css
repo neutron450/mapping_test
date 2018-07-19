@@ -164,6 +164,29 @@ div.flyout span:hover, div.subfly span:hover {
 	color: #060;
 }
 
+.hasImg {
+	color: #0c6;
+}
+
+.noImg {
+	color: #900;
+}
+
+div.poi-box {
+	position: fixed;
+	top: 35px;
+	right: 35px;
+	width: 25%;
+	height: 75%;
+	z-index: 999;
+	overflow: hidden;
+}
+
+div.poi-box img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
 
 
 
