@@ -9,16 +9,25 @@
 		});
 
 		$(document).on("click", "li.list-group-item", function(e){
-			console.log(e);
+			//console.log(e);
 			var id = $(this).attr('data-id');
-			//console.log(mapStuff[id]);
-			//var recId = mapStuff[id].user_properties.recordId;
-			//alert(id + ' - ' + recId);
-			adjustMapFocus(e.currentTarget, id);
+			var item = $(this).attr('data-itemid');
 
-			doPoiImage(id);
+			console.log(mapStuff[item]);
 
-			zoomInHandler();
+			adjustMapFocus(e.currentTarget, item, function(){ });
+
+			if ($(this).hasClass('hasImg')) {
+
+				doPoiImage(id);
+
+			} else {
+
+				$('.poi-box').remove();
+
+			}
+
+			//zoomInHandler();
 
 			//$('.active').removeClass('active');
 			$(this).addClass('seen').siblings().removeClass('active');
@@ -112,7 +121,7 @@
 		});
 
 		$(document).on('click', '*', function(e) {
-			console.log(e.target.nodeName);
+			//console.log(e.target.nodeName);
 			if (e.target.nodeName=='BODY' || e.target.nodeName=='HTML') {
 				$('.showpopmap').removeClass('showpopmap');
 				resetMenus();
@@ -147,7 +156,7 @@
 
 			} else {
 
-				console.log('fly '+cat + ' ' +type);
+				//console.log('fly '+cat + ' ' +type);
 
 				for(var item in mapStuff) {
 
@@ -155,18 +164,20 @@
 						continue;
 					}
 
-					console.log(type + ' +++ ' + (mapStuff[item].user_properties.gkDepartment));
+					///console.log(type + ' +++ ' + (mapStuff[item].user_properties.gkDepartment));
 
 					if (mapStuff[item].user_properties.gkDepartment.indexOf(type) != -1) {
 
-						console.log(mapStuff[item]);
+						//console.log(mapStuff[item]);
 						//var id = mapStuff[item].properties.mapLabelId;
-						var id = mapStuff[item].user_properties.recordId;
+						var id = mapStuff[item].user_properties.itemId;
 
-						console.log(id);
+						//console.log(id);
 
-						adjustMapFocus(e.currentTarget, id);
+						adjustMapFocus(e.currentTarget, id, function(){ });
+
 						collapseMenus();
+
 						break;
 
 					}
@@ -203,13 +214,14 @@
 					continue;
 				}
 				if (mapStuff[item].user_properties.bldgAbbr == bldg) {
-					console.log(dept + ' +++ ' + (mapStuff[item].user_properties.gkDepartment));
+					//console.log(dept + ' +++ ' + (mapStuff[item].user_properties.gkDepartment));
 					if (mapStuff[item].user_properties.gkDepartment.indexOf(dept) != -1) {
-						console.log(mapStuff[item]);
+						//console.log(mapStuff[item]);
 						//var id = mapStuff[item].properties.mapLabelId;
-						var id = mapStuff[item].user_properties.recordId;
+						//var id = mapStuff[item].user_properties.recordId;
+						var id = mapStuff[item].user_properties.itemId;
 						//ambiarc.showMapLabel(id, true);
-						adjustMapFocus(e.currentTarget, id);
+						adjustMapFocus(e.currentTarget, id, function(){ });
 						collapseMenus();
 						break;
 					}
@@ -334,7 +346,7 @@
 				continue;
 			}
 			if (mapStuff[item].user_properties.gkDepartment.indexOf(find) != -1) {
-				console.log(mapStuff[item]);
+				//console.log(mapStuff[item]);
 				return true;
 				break;
 			}
@@ -345,13 +357,15 @@
 
 	function checkImage(imgUrl) {
 
+		///return 'noImg';
+
 		var imgExt = 'noImg';
 
 		var http = new XMLHttpRequest();
 		http.open('HEAD', imgUrl, false);
 		http.send();
 
-		console.log(http.status);
+		//console.log(http.status);
 
 		if (http.status == 404) {
 			return 'noImg';
@@ -370,15 +384,15 @@
 
 			var imgExt = checkImage(imgUrl);
 
-			console.log(imgExt);
+			//console.log(imgExt);
 
 			if (record.properties.label == 'Sculpture') {
 				record.properties.label = record.user_properties.gkArtName;
 			}
 
 			lBldgs[record.user_properties.bldgAbbr] = record.user_properties.bldgName;
-			lButtons[record.properties.mapLabelId] = '<li  id="'+record.properties.mapLabelId+'"  data-id="'+record.properties.mapLabelId+'"  data-building="'+record.user_properties.bldgAbbr+'"  class="list-group-item"  >';
-			lButtons[record.properties.mapLabelId] += '<div class="li-col li-label"><span class="'+imgExt+'">'+record.properties.label+'</span></div>';
+			lButtons[record.properties.mapLabelId] = '<li  id="'+record.properties.mapLabelId+'"  data-itemId="'+record.user_properties.itemId+'"  data-id="'+record.properties.mapLabelId+'"  data-building="'+record.user_properties.bldgAbbr+'"  class="list-group-item '+imgExt+'">';
+			lButtons[record.properties.mapLabelId] += '<div class="li-col li-label"><span>'+record.properties.label+'</span></div>';
 			lButtons[record.properties.mapLabelId] += '<div class="li-col li-bldg"><span>'+record.user_properties.bldgAbbr+'</span></div>';
 			lButtons[record.properties.mapLabelId] += '<div class="li-col li-room"><span>'+record.user_properties.newRoomNo+'</span></div></li>';
 		});

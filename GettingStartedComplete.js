@@ -1,5 +1,5 @@
 // Tells Ambiarc to focus on a map label id
-function adjustMapFocus(target, mapLabelId) {
+function adjustMapFocus(target, mapLabelId, callback) {
   // Declare all variables
   var i, tablinks;
 
@@ -14,12 +14,28 @@ function adjustMapFocus(target, mapLabelId) {
   // Retrieve ambiarc object
   var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
 
+  //console.log(ambiarc);
+
   //alert(mapLabelId);
 
+  //mapStuff[mapLabelId].properties.location = 'URL';
+
+  console.log(mapStuff[mapLabelId]);
+
+  var props = mapStuff[mapLabelId].properties;
+  props.location = 'URL';
+
+  ambiarc.updateMapLabel(mapLabelId, ambiarc.mapLabel.IconWithText, props);
+
   // call the focusOnMapLabel with the map label id
-  ambiarc.focusOnMapLabel(mapLabelId, 2);
+  //ambiarc.focusOnMapLabel(mapLabelId, 2);
+  ambiarc.focusOnMapLabel(mapLabelId);
 
   //ambiarc.zoomInHandler();
+
+    if (callback && typeof(callback) === "function") {
+        callback();
+    }
 
 }
 
@@ -63,10 +79,10 @@ var onAmbiarcLoaded = function() {
   //ambiarc.loadRemoteMapLabels("http://facilities/facilities/fetch").then((out) => {
   //ambiarc.loadRemoteMapLabels(full + '/points3.json').then((out) => {
   //ambiarc.loadRemoteMapLabels("https://map.pratt.edu/facilities/web/facilities/get?hash="+hash+"&token="+document.token+"&webapp=display").then((out) => {
-  ambiarc.loadRemoteMapLabels("https://map.pratt.edu/facilities/web/facilities/get?token="+token).then((out) => {
+  ambiarc.loadRemoteMapLabels("https://map.pratt.edu/facilities/web/facilities/get?token="+token+"&hash="+hash).then((out) => {
   //ambiarc.loadRemoteMapLabels("http://facilities.local/facilities/get?token=65b22c76497f3b4c4436bf324e6154").then((out) => {
 
-	MapLabels = out;
+	///MapLabels = out;
 	window.mapStuff = out;
 
 	setupMenuBuildings(out);

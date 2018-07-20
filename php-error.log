@@ -958,3 +958,44 @@ Stack trace:
 [19-Jul-2018 16:15:29 UTC]  - - - - - - - - - - - - - - - - 
 [19-Jul-2018 16:21:08 UTC]  - - - - - - - - - - - - - - - - 
 [19-Jul-2018 16:41:38 UTC]  - - - - - - - - - - - - - - - - 
+[19-Jul-2018 16:51:07 UTC]  - - - - - - - - - - - - - - - - 
+[19-Jul-2018 17:20:18 UTC]  - - - - - - - - - - - - - - - - 
+[19-Jul-2018 17:23:31 UTC]  - - - - - - - - - - - - - - - - 
+[19-Jul-2018 17:32:19 UTC]  - - - - - - - - - - - - - - - - 
+[19-Jul-2018 17:58:11 UTC]  - - - - - - - - - - - - - - - - 
+[19-Jul-2018 17:59:44 UTC]  - - - - - - - - - - - - - - - - 
+[19-Jul-2018 17:59:44 UTC] PHP Warning:  PDO::__construct(): MySQL server has gone away in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 26
+[19-Jul-2018 18:26:52 UTC]  - - - - - - - - - - - - - - - - 
+[19-Jul-2018 18:28:01 UTC]  - - - - - - - - - - - - - - - - 
+[19-Jul-2018 18:28:01 UTC] PHP Warning:  PDO::__construct(): MySQL server has gone away in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 26
+[19-Jul-2018 19:12:58 UTC]  - - - - - - - - - - - - - - - - 
+[19-Jul-2018 19:12:58 UTC] PHP Warning:  PDO::__construct(): MySQL server has gone away in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 26
+[19-Jul-2018 19:18:54 UTC]  - - - - - - - - - - - - - - - - 
+[19-Jul-2018 19:25:59 UTC]  - - - - - - - - - - - - - - - - 
+[19-Jul-2018 19:27:18 UTC]  - - - - - - - - - - - - - - - - 
+[19-Jul-2018 19:27:18 UTC] PHP Warning:  PDO::__construct(): MySQL server has gone away in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 26
+[19-Jul-2018 19:30:15 UTC]  - - - - - - - - - - - - - - - - 
+[19-Jul-2018 19:40:53 UTC]  - - - - - - - - - - - - - - - - 
+[19-Jul-2018 19:48:14 UTC]  - - - - - - - - - - - - - - - - 
+[20-Jul-2018 15:12:55 UTC]  - - - - - - - - - - - - - - - - 
+[20-Jul-2018 15:16:57 UTC]  - - - - - - - - - - - - - - - - 
+[20-Jul-2018 15:19:53 UTC]  - - - - - - - - - - - - - - - - 
+[20-Jul-2018 15:42:33 UTC]  - - - - - - - - - - - - - - - - 
+[20-Jul-2018 15:52:32 UTC]  - - - - - - - - - - - - - - - - 
+[20-Jul-2018 15:53:18 UTC]  - - - - - - - - - - - - - - - - 
+[20-Jul-2018 15:56:01 UTC]  - - - - - - - - - - - - - - - - 
+[20-Jul-2018 16:11:03 UTC]  - - - - - - - - - - - - - - - - 
+[20-Jul-2018 16:20:51 UTC]  - - - - - - - - - - - - - - - - 
+[20-Jul-2018 16:21:57 UTC]  - - - - - - - - - - - - - - - - 
+[20-Jul-2018 16:31:36 UTC]  - - - - - - - - - - - - - - - - 
+[20-Jul-2018 16:32:32 UTC]  - - - - - - - - - - - - - - - - 
+[20-Jul-2018 16:43:57 UTC]  - - - - - - - - - - - - - - - - 
+[20-Jul-2018 17:03:07 UTC]  - - - - - - - - - - - - - - - - 
+[20-Jul-2018 17:09:57 UTC]  - - - - - - - - - - - - - - - - 
+[20-Jul-2018 17:09:57 UTC] PHP Warning:  PDO::__construct(): MySQL server has gone away in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 26
+[20-Jul-2018 17:22:12 UTC]  - - - - - - - - - - - - - - - - 
+[20-Jul-2018 17:26:43 UTC]  - - - - - - - - - - - - - - - - 
+[20-Jul-2018 17:26:43 UTC] PHP Warning:  PDO::__construct(): MySQL server has gone away in /Users/iancampbell/Sites/nelson_demo/includes/dbtools.inc.php on line 26
+[20-Jul-2018 17:35:37 UTC]  - - - - - - - - - - - - - - - - 
+[20-Jul-2018 17:47:08 UTC]  - - - - - - - - - - - - - - - - 
+[20-Jul-2018 17:53:10 UTC]  - - - - - - - - - - - - - - - - 
