@@ -44,6 +44,8 @@
   <link rel="stylesheet" media="all" href="css/menu.css?nc=<?php echo time(); ?>" />
   <link rel="stylesheet" media="all" href="css/pop_maps.css?nc=<?php echo time(); ?>" />
 
+  <script src="js/demo-ui.js"></script>
+
   <script src="TemplateData/js/jquery-2.2.4.min.js"></script>
   <script src="TemplateData/js/bootstrap.min.js"></script>
   <script src="js/menu.js?nc=<?php echo time(); ?>"></script>
@@ -59,19 +61,15 @@
     	document.acad = JSON.parse(acad);
     	var off = '<?php $obj->fetchOfficesArray() ?>';
     	document.off = JSON.parse(off);
+    	var fac = '<?php $obj->fetchFacilitiesArray() ?>';
+    	document.fac = JSON.parse(fac);
     	$.cookie('token', "<?php echo $_SESSION['token'] ?>", { expires: 1, secure: false });
     	//$.cookie('token', token, { expires: 1, path: '/', domain: 'jquery.com', secure: true });
-
     </script>
-
-  <script src="js/demo-ui.js"></script>
 
   <script src="GettingStartedComplete.js?nc=<?php echo time(); ?>"></script>
 
-  <style>
-
-
-  </style>
+  <style></style>
 
 </head>
 
@@ -164,15 +162,17 @@
 	<div class="menu-category" style="background-color:#dde2e2"><span class="cat-box" data-type="buildings">buildings</span></div>
 	<div class="menu-category" style="background-color:#d6cecd"><span class="cat-box" data-type="academics">academics</span></div>
 	<div class="menu-category" style="background-color:#9a8e88"><span class="cat-box" data-type="offices">offices</span></div>
-	<div class="menu-category" style="background-color:#52869f"><span class="cat-box">facilities</span></div>
+	<div class="menu-category" style="background-color:#52869f"><span class="cat-box" data-type="facilities">facilities</span></div>
 	<div class="menu-category" style="background-color:#f4581e"><span class="cat-box">accessibility</span></div>
+	<div class="menu-category" style="background-color:#fff"><span class="cat-box cat-box-search"><img class="search-btn" src="images/view.png"></span></div>
   </div>
 
 	<div class="flyout buildings"></div>
 	<div class="flyout academics"></div>
 	<div class="flyout offices"></div>
+	<div class="flyout facilities"></div>
 
-	<img class="search-btn" src="images/view.png">
+
 
 	<div class="mapouter map-bfda map-flsh ">
 		<iframe width="" height="" frameborder="0" src="" scrolling="no"></iframe>

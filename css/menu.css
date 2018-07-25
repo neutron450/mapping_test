@@ -14,9 +14,9 @@ div.click-capture {
 }
 
 img.search-btn {
-	position: fixed;
+	/*position: fixed;
 	left: 20px;
-	bottom: 20px;
+	bottom: 20px;*/
 	width: 30px;
 	pointer-events: auto;
 	cursor: pointer;
@@ -29,7 +29,8 @@ div.nav-menu {
     display: flex;
 
 	position: fixed;
-	top: 45%;
+	/*top: 45%;*/
+	bottom: 5%;
 	left: 0px;
 	overflow: hidden;
     padding: 5px 20px;
@@ -92,6 +93,9 @@ span.cat-box {
 	margin: 15px 25px;
 	pointer-events: auto;
 }
+span.cat-box-search {
+	margin: 15px 15px;
+}
 
 div.fade-out {
 	left: -100px;
@@ -102,13 +106,14 @@ div.fade-out {
 div.flyout, div.subfly {
 	/*display: block;*/
 	position: fixed;
-	top: 50%;
-	transform: translateY(-50%);
+	/*top: 50%;
+	transform: translateY(-50%);*/
+	bottom: 0px;
 	z-index: 901;
 	background-color: #fff;
 	height: auto;
 
-	max-height: 100vh;
+	max-height: 50vh;
     /*overflow: scroll;*/
     overflow-y: scroll;
     overflow-x: hidden;
@@ -176,10 +181,11 @@ div.poi-box {
 	position: fixed;
 	top: 35px;
 	right: 35px;
-	width: 25%;
+	width: 0px;
 	height: 75%;
 	z-index: 999;
 	overflow: hidden;
+	opacity: 0;
 }
 
 div.poi-box img {

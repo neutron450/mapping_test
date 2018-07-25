@@ -96,6 +96,6 @@ $arr = array();
 @$arr['academics']['research and centers']['Brooklyn Fashion and Design Accelerator (BF+DA)'] = ['FLSH'];///
 @$arr['academics']['research and centers']['The Consortium for Research and Robotics'] = ['CRR'];///
 @$arr['academics']['research and centers']['Spatial Analysis and Visualization Initiative'] = ['ISC'];
-@$arr['academics']['research and centers']['Additional Research, Centers and Labs'] = ['NH'];
+//@$arr['academics']['research and centers']['Additional Research, Centers and Labs'] = ['NH'];
 
 ?>

@@ -77,4 +77,9 @@ class DbTools {
 		echo json_encode($arr);
 	}
 
+	public function fetchFacilitiesArray() {
+		include_once('includes/facilities.inc.php');
+		echo json_encode($arr);
+	}
+
 }

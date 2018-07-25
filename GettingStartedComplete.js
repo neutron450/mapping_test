@@ -20,7 +20,7 @@ function adjustMapFocus(target, mapLabelId, callback) {
 
   //mapStuff[mapLabelId].properties.location = 'URL';
 
-  console.log(mapStuff[mapLabelId]);
+  //console.log(mapStuff[mapLabelId]);
 
   var props = mapStuff[mapLabelId].properties;
   props.location = 'URL';
@@ -33,9 +33,13 @@ function adjustMapFocus(target, mapLabelId, callback) {
 
   //ambiarc.zoomInHandler();
 
-    if (callback && typeof(callback) === "function") {
-        callback();
-    }
+  if (callback && typeof(callback) === "function") {
+    callback();
+  }
+
+}
+
+function wwwhideInactivePoints() {
 
 }
 
@@ -48,21 +52,33 @@ var iframeLoaded = function() {
 
 //Handler for when the map is ready. This method creates the floor selector and subscribes to events.
 var onAmbiarcLoaded = function() {
+
   var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
+
   ambiarc.registerForEvent(ambiarc.eventLabel.MapLabelSelected, (event) => {
     adjustMapFocus($("#" + event.detail)[0], event.detail)
   });
 
-  //load MapLabels from a preprovided map file
-  var full = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + (window.location.pathname ? window.location.pathname.substring(0, window.location.pathname.lastIndexOf("/")) : '');
+  doPoiLoad();
 
-  var hash = Math.random().toString(36).substr(2, 5);
+  InternalOnAmbiarcLoaded();
 
-  //var options = { method: 'post', headers: new Headers({ 'Authorization': 'Basic '+btoa('user:pass'), 'Content-Type': 'application/x-www-form-urlencoded' }), };
+}
 
-  var token = $.cookie('token');
+function doPoiLoad() {
 
-  var options = {
+	var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
+
+	//load MapLabels from a preprovided map file
+	var full = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + (window.location.pathname ? window.location.pathname.substring(0, window.location.pathname.lastIndexOf("/")) : '');
+
+	var hash = Math.random().toString(36).substr(2, 5);
+
+	//var options = { method: 'post', headers: new Headers({ 'Authorization': 'Basic '+btoa('user:pass'), 'Content-Type': 'application/x-www-form-urlencoded' }), };
+
+	var token = $.cookie('token');
+
+	var options = {
 		method: 'POST',
 		mode: 'no-cors',
 		redirect: 'follow',
@@ -74,38 +90,24 @@ var onAmbiarcLoaded = function() {
 		body: JSON.stringify({a: 1, b: 'Textual content'})
 	}
 
-  //alert(token);
-  //ambiarc.loadRemoteMapLabels(full + "/tutorial_map_labels.json").then((out) => {});
-  //ambiarc.loadRemoteMapLabels("http://facilities/facilities/fetch").then((out) => {
-  //ambiarc.loadRemoteMapLabels(full + '/points3.json').then((out) => {
-  //ambiarc.loadRemoteMapLabels("https://map.pratt.edu/facilities/web/facilities/get?hash="+hash+"&token="+document.token+"&webapp=display").then((out) => {
-  ambiarc.loadRemoteMapLabels("https://map.pratt.edu/facilities/web/facilities/get?token="+token+"&hash="+hash).then((out) => {
-  //ambiarc.loadRemoteMapLabels("http://facilities.local/facilities/get?token=65b22c76497f3b4c4436bf324e6154").then((out) => {
+	//alert(token);
+	//ambiarc.loadRemoteMapLabels(full + "/tutorial_map_labels.json").then((out) => {});
+	//ambiarc.loadRemoteMapLabels("http://facilities/facilities/fetch").then((out) => {
+	//ambiarc.loadRemoteMapLabels(full + '/points3.json').then((out) => {
+	//ambiarc.loadRemoteMapLabels("https://map.pratt.edu/facilities/web/facilities/get?hash="+hash+"&token="+document.token+"&webapp=display").then((out) => {
+	ambiarc.loadRemoteMapLabels("https://map.pratt.edu/facilities/web/facilities/get?token="+token+"&hash="+hash).then((out) => {
+	//ambiarc.loadRemoteMapLabels("http://facilities.local/facilities/get?token=65b22c76497f3b4c4436bf324e6154").then((out) => {
 
-	///MapLabels = out;
-	window.mapStuff = out;
+		///MapLabels = out;
+		window.mapStuff = out;
 
-	setupMenuBuildings(out);
-	setupMenuAcademics();
-	setupMenuOffices();
+		setupMenuBuildings(out);
+		setupMenuAcademics();
+		setupMenuOffices();
+		setupMenuOffices();
+		setupMenuFacilities();
 
-  });
+	});
 
-  InternalOnAmbiarcLoaded();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -9,6 +9,7 @@
 		});
 
 		$(document).on("click", "li.list-group-item", function(e){
+
 			//console.log(e);
 			var id = $(this).attr('data-id');
 			var item = $(this).attr('data-itemid');
@@ -31,14 +32,19 @@
 
 			//$('.active').removeClass('active');
 			$(this).addClass('seen').siblings().removeClass('active');
+
+			hideInactivePoints(false, item);
+
 		});
 
 		$(document).on('click', '.search-btn', function() {
+			//collapseMenus();
+			$('.nav-menu').fadeOut();
 			$('.showpopmap').removeClass('showpopmap');
 			$('.points').addClass('reveal-vert');
 			$('.menu-open').addClass('fade-out');
 			$('.reveal-horz').removeClass('reveal-horz');
-			$('.search-btn').fadeOut();
+			//$('.search-btn').fadeOut();
 			$('body').append('<div class="click-capture"></div>');
 			isFloorSelectorEnabled = false;
 			var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
@@ -50,7 +56,7 @@
 			$('.showpopmap').removeClass('showpopmap');
 			$('.menu-open').addClass('fade-out');
 			$('.cat-wrap').removeClass('fade-out');
-			$('.search-btn').fadeOut();
+			//$('.search-btn').fadeOut();
 			//$('body').css({'pointer-events':'auto'});
 			//$('*').css({'pointer-events':'auto'});
 			//$('#gameContainer').css({'pointer-events':'auto'});
@@ -245,7 +251,12 @@
 
 	function doPoiImage(id) {
 		$('.poi-box').remove();
-		$('body').append('<div class="poi-box"><img src="images/pois/'+id+'.jpg"></div>');
+		$('body').append('<div class="poi-box"><img src="images/pois/'+id+'.jpg"></div>').promise().then(function(){
+			$('.poi-box').animate({
+				'width': '25%',
+				'opacity': '1'
+			},500);
+		});
 	}
 
 	function doPopupMap() {
@@ -272,8 +283,20 @@
 			$('div.mapouter').find('iframe').attr('width',wid);
 			$('div.mapouter').find('iframe').attr('height',hei);
 
+			// 	if (bldg=='CRR') {
+			// 		window.bmap = 'https://www.bing.com/maps/embed?h='+hei+'&w='+wid+'&cp=40.692685644753745~-73.96787007753449&lvl=15&typ=d&sty=r&src=SHELL&FORM=MBEDV8';
+			// 		//window.bmap = 'includes/filterframes.php';
+			// 		$('div.mapouter').find('iframe').attr('src',bmap);
+			// 	}
+
+			if (bldg=='FLSH') {
+				window.bmap = 'https://maps.google.com/maps?q=Brooklyn%20Fashion%20%2B%20Design%20Accelerator&t=&z=15&ie=UTF8&iwloc=&output=embed';
+				//window.bmap = 'includes/filterframes.php';
+				$('div.mapouter').find('iframe').attr('src',bmap);
+			}
+
 			if (bldg=='CRR') {
-				window.bmap = 'https://www.bing.com/maps/embed?h='+hei+'&w='+wid+'&cp=40.692685644753745~-73.96787007753449&lvl=15&typ=d&sty=r&src=SHELL&FORM=MBEDV8';
+				window.bmap = 'https://maps.google.com/maps?q=40.698393%2C%20-73.972519&t=&z=15&ie=UTF8&iwloc=&output=embed';
 				//window.bmap = 'includes/filterframes.php';
 				$('div.mapouter').find('iframe').attr('src',bmap);
 			}
@@ -292,12 +315,13 @@
 	}
 
 	function resetMenus() {
+		$('.nav-menu').removeAttr('style');
 		$('.poi-box').remove();
 		$('.menu-open').removeClass('fade-out');
 		$('.cat-wrap').addClass('fade-out');
 		$('.reveal-horz').removeClass('reveal-horz');
 		$('.reveal-vert').removeClass('reveal-vert');
-		$('.search-btn').fadeIn();
+		//$('.search-btn').fadeIn();
 
 		if ($('.showpopmap').css('opacity') > 0) {
 			return true;
@@ -456,6 +480,18 @@
 			offString += '<span class="fly-box '+menuHightlight+'" data-cat="office"  data-office="'+office+'" >'+office+'</span>';
 		});
 		$('div.offices').append(offString);
+	}
+
+	function setupMenuFacilities() {
+		var facString = '';
+		$(document.fac).each(function(key, facility){
+			var menuHightlight = 'warn';
+			if (searchPropertiesGkDept(facility)) {
+				menuHightlight = '';
+			}
+			facString += '<span class="fly-box '+menuHightlight+'" data-cat="facility"  data-facility="'+facility+'" >'+facility+'</span>';
+		});
+		$('div.facilities').append(facString);
 	}
 
 

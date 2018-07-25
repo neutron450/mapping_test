@@ -147,3 +147,91 @@
    var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
    ambiarc.zoomCamera(0.2, 0.3);
  };
+
+
+
+
+
+
+
+
+ /// added functions
+
+ var destroyAllLabels = function(){
+
+	var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
+
+	$.each(ambiarc.poiList, function(MapLabelID, a){
+		ambiarc.destroyMapLabel(parseInt(MapLabelID));
+	});
+
+	ambiarc.poiList = {};
+	poisInScene = [];
+	colorsInScene = {
+		'Wall' : '#01abba',
+		'Room' : '#01abba',
+		'Restroom' : '#01abba',
+		'Walkway' : '#01abba',
+		'Stairs' : '#01abba',
+		'Elevator' : '#01abba',
+		'Escalator' : '#01abba',
+		'Ramp' : '#01abba',
+		'Non-Public' : '#01abba'
+	};
+
+	updatePoiList();
+	showPoiList();
+};
+
+
+var hideInactivePoints = function(immediate=true, currentLabelId) {
+
+	var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
+
+	if(!immediate) {
+		var immediate = false;
+	}
+
+	// 	console.log('one');
+	// 	console.log(ambiarc.poiList);
+	// 	console.log('two');
+	//
+	// 	ambiarc.poiList = mapStuff;
+	//
+	// 	console.log('three');
+	// 	console.log(ambiarc.poiList);
+	// 	console.log('four');
+	//
+	// 	$.each(ambiarc.poiList, function(id, obj){
+	//         if(id != currentLabelId) {
+	//             ambiarc.hideMapLabel(id, immediate);
+	//         } else {
+	//             if(obj.floorId == currentFloorId){
+	//                 ambiarc.showMapLabel(id, immediate)
+	//             }
+	//         }
+	// 	});
+	//
+	//     if(ambiarc.poiList[currentLabelId].floorId !== currentFloorId){
+	//         ambiarc.hideMapLabel(currentLabelId);
+	//     } else {
+	//         ambiarc.showMapLabel(currentLabelId);
+	//     }
+
+	$.each(mapStuff, function(id, obj){
+        if(id != currentLabelId) {
+
+        	//console.log('hide this label');
+        	//console.log(mapStuff[id]);
+
+            ambiarc.hideMapLabel(id, immediate);
+        } else {
+            if(obj.floorId == currentFloorId){
+                ambiarc.showMapLabel(id, immediate)
+            }
+        }
+	});
+
+};
+
+
