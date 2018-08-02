@@ -249,6 +249,28 @@
 
 	});
 
+	function loadKeyboard() {
+
+		$('input.filter').keyboard({
+			theme: 'default',
+			//is_hidden: false,
+			close_speed: 1000,
+			enabled: true,
+			layout: 'en_US',
+			// definimos un trigger al keyboard.
+			// Al hacer click sobre el selector que tenga el id (#) o la clase (.) definida
+			// se ocultara o mostrara el keyboard segun corresponda.
+			//trigger: '#buttom1'
+		});
+
+		var pWid = $(window).width();
+
+		var kLeft = parseInt( (pWid - 776) / 2 );
+
+		$('div#keyboard').css({'left':kLeft+'px'});
+
+	}
+
 	function doPoiImage(id) {
 		$('.poi-box').remove();
 		$('body').append('<div class="poi-box"><img src="images/pois/'+id+'.jpg"></div>').promise().then(function(){

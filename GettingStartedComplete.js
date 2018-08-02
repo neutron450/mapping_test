@@ -106,6 +106,7 @@ function doPoiLoad() {
 		setupMenuOffices();
 		setupMenuOffices();
 		setupMenuFacilities();
+		loadKeyboard();
 
 	});
 

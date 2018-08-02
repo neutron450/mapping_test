@@ -44,12 +44,16 @@
   <link rel="stylesheet" media="all" href="css/menu.css?nc=<?php echo time(); ?>" />
   <link rel="stylesheet" media="all" href="css/pop_maps.css?nc=<?php echo time(); ?>" />
 
+  <link href="css/jquery.virtual_keyboard.css" rel="stylesheet" type="text/css"/>
+
   <script src="js/demo-ui.js"></script>
 
   <script src="TemplateData/js/jquery-2.2.4.min.js"></script>
   <script src="TemplateData/js/bootstrap.min.js"></script>
   <script src="js/menu.js?nc=<?php echo time(); ?>"></script>
   <script src="js/jquery.cookie.js?nc=<?php echo time(); ?>"></script>
+
+  <script src="js/jquery.virtual_keyboard.js" type="text/javascript"></script>
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
