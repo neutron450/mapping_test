@@ -251,24 +251,47 @@
 
 	function loadKeyboard() {
 
-		$('input.filter').keyboard({
-			theme: 'default',
-			//is_hidden: false,
-			close_speed: 1000,
-			enabled: true,
-			layout: 'en_US',
-			// definimos un trigger al keyboard.
-			// Al hacer click sobre el selector que tenga el id (#) o la clase (.) definida
-			// se ocultara o mostrara el keyboard segun corresponda.
-			//trigger: '#buttom1'
-		});
+		///alert(navigator.appVersion + ' -- ' + navigator.userAgent);
 
-		var pWid = $(window).width();
+		var isMobile = {
+			Android: function() {
+				return navigator.userAgent.match(/Android/i);
+			},
+			BlackBerry: function() {
+				return navigator.userAgent.match(/BlackBerry/i);
+			},
+			iOS: function() {
+				return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+			},
+			Opera: function() {
+				return navigator.userAgent.match(/Opera Mini/i);
+			},
+			Windows: function() {
+				return navigator.userAgent.match(/IEMobile/i);
+			},
+			any: function() {
+				return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+			}
+		};
 
-		var kLeft = parseInt( (pWid - 776) / 2 );
-
-		$('div#keyboard').css({'left':kLeft+'px'});
-
+		if (isMobile.any()) {
+			// don't show the keyboard
+		} else {
+			$('input.filter').keyboard({
+				theme: 'default',
+				//is_hidden: false,
+				close_speed: 1000,
+				enabled: true,
+				layout: 'en_US',
+				// definimos un trigger al keyboard.
+				// Al hacer click sobre el selector que tenga el id (#) o la clase (.) definida
+				// se ocultara o mostrara el keyboard segun corresponda.
+				//trigger: '#buttom1'
+			});
+			var pWid = $(window).width();
+			var kLeft = parseInt( (pWid - 776) / 2 );
+			$('div#keyboard').css({'left':kLeft+'px'});
+		}
 	}
 
 	function doPoiImage(id) {
