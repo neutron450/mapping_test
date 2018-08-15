@@ -28,8 +28,21 @@ function adjustMapFocus(target, mapLabelId, callback) {
   ambiarc.updateMapLabel(mapLabelId, ambiarc.mapLabel.IconWithText, props);
 
   // call the focusOnMapLabel with the map label id
-  //ambiarc.focusOnMapLabel(mapLabelId, 2);
-  ambiarc.focusOnMapLabel(mapLabelId);
+  //ambiarc.focusOnMapLabel(mapLabelId);
+  ambiarc.focusOnMapLabel(mapLabelId, 200);
+
+	//	$.each(mapStuff, function(id, obj){
+	//		ambiarc.hideMapLabel(id, true);
+	// 	});
+
+	setTimeout(function(){
+
+		for(var item in mapStuff) {
+			var id = mapStuff[item].user_properties.recordId;
+			ambiarc.hideMapLabel(id, true);
+		}
+
+	}, 3000);
 
   //ambiarc.zoomInHandler();
 

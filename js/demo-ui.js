@@ -22,7 +22,6 @@
    ambiarc.viewFloorSelector(mainBldgID);
  };
 
-
  //Handler for when the map is ready. This method creates the floor selector and subscribes to events.
  var InternalOnAmbiarcLoaded = function() {
    var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
@@ -31,6 +30,7 @@
    ambiarc.registerForEvent(ambiarc.eventLabel.FloorSelectorEnabled, onEnteredFloorSelector);
    ambiarc.registerForEvent(ambiarc.eventLabel.FloorSelectorDisabled, onExitedFloorSelector);
    ambiarc.registerForEvent(ambiarc.eventLabel.FloorSelectorFloorFocusChanged, onFloorSelectorFocusChanged);
+   ambiarc.registerForEvent(ambiarc.eventLabel.CameraMotionCompleted, cameraCompletedHandler);
 
    ambiarc.getAllBuildings((bldgs) => {
      mainBldgID = bldgs[0];
@@ -118,7 +118,6 @@
    });
  };
 
-
  //Rotate handlers
  var rotateLeft = function() {
    var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
@@ -148,16 +147,58 @@
    ambiarc.zoomCamera(0.2, 0.3);
  };
 
+ /// added functions /////////////////////////////////////////////////////////////////////
 
+ var cameraCompletedHandler = function(event){
 
+    console.log("camera completed handler!!");
+    console.log(event);
 
+    setTimeout(function(){
 
+		for(var item in mapStuff) {
+			var id = mapStuff[item].user_properties.recordId;
+			ambiarc.hideMapLabel(id, true);
+		}
 
+	}, 125);
 
+	//     if(currentFloorId == null){
+	//         $('#bldg-floor-select').val('Exterior');
+	//     }
+	//     else {
+	//         $('#bldg-floor-select').val(currentBuildingId+'::'+currentFloorId);
+	//     }
+	//
+	//     if(event.detail == -1) {
+	//         return;
+	//     }
+	//
+	//     // listening for exterior camera movement
+	//     if(event.detail == 1000){
+	//         ambiarc.focusOnFloor(mainBldgID, null, 300);
+	//         currentFloorId = null;
+	//         $('#bldg-floor-select').val('Exterior');
+	//         visibilityHandler();
+	//         return;
+	//     }
+	//
+	//     //listening for focusing on exterior point camera movement
+	//     else if(event.detail == 100){
+	//         $('#bldg-floor-select').val('Exterior');
+	//         showPoiDetails();
+	//         visibilityHandler();
+	//     }
+	//
+	//     //focus on maplabel completed!!
+	//     else if(event.detail == 200){
+	//         showPoiDetails();
+	//         visibilityHandler();
+	//     }
 
- /// added functions
+};
 
- var destroyAllLabels = function(){
+var destroyAllLabels = function(){
 
 	var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
 
@@ -182,7 +223,6 @@
 	updatePoiList();
 	showPoiList();
 };
-
 
 var hideInactivePoints = function(immediate=true, currentLabelId) {
 
@@ -233,5 +273,4 @@ var hideInactivePoints = function(immediate=true, currentLabelId) {
 	});
 
 };
-
 
