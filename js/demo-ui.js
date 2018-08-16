@@ -151,17 +151,20 @@
 
  var cameraCompletedHandler = function(event){
 
-    console.log("camera completed handler!!");
+    console.log("camera completed handler!");
     console.log(event);
 
-    setTimeout(function(){
-
-		for(var item in mapStuff) {
-			var id = mapStuff[item].user_properties.recordId;
-			ambiarc.hideMapLabel(id, true);
-		}
-
-	}, 125);
+    try{
+		var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
+		setTimeout(function(){
+			for(var item in mapStuff) {
+				var id = mapStuff[item].user_properties.recordId;
+				ambiarc.hideMapLabel(id, true);
+			}
+		}, 125);
+	} catch(err) {
+		console.log(err);
+	}
 
 	//     if(currentFloorId == null){
 	//         $('#bldg-floor-select').val('Exterior');

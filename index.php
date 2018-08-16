@@ -18,7 +18,7 @@
 	$obj = new DbTools;
 	if (!@$_SESSION['token']) {
 		if($obj->createToken()) {
-			echo '<br>token created';
+			//echo '<br>token created';
 		} else {
 			echo '<br>error, token not created';
 		}
@@ -46,7 +46,7 @@
 
   <link href="css/jquery.virtual_keyboard.css" rel="stylesheet" type="text/css"/>
 
-  <script src="js/demo-ui.js"></script>
+  <script src="js/demo-ui.js?nc=<?php echo time(); ?>"></script>
 
   <script src="TemplateData/js/jquery-2.2.4.min.js"></script>
   <script src="TemplateData/js/bootstrap.min.js"></script>

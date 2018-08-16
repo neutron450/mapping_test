@@ -149,16 +149,26 @@ div.reveal-vert {
 
 div.flyout span, div.subfly span {
 	display: block;
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: bold;
-	margin: 10px 20px;
+	/*margin: 10px 20px;*/
+	margin: 0px;
 	pointer-events: auto;
 	cursor: pointer;
     z-index: 900;
+    padding: 10px 20px;
+
+    color: #000;
+    transition: color 0.2s ease;
+
+	background-color: #fff;
+    transition: background-color 0.2s ease;
 }
 
 div.flyout span:hover, div.subfly span:hover {
 	text-decoration: underline;
+	color: #fff;
+	background-color: #39f;
 }
 
 .warn {

@@ -66,8 +66,8 @@
         immediate: immediate
       });
 
-      console.log('send message to game instance');
-      console.log(json);
+      ///console.log('send message to game instance');
+      ///console.log(json);
 
       gameInstance.SendMessage('Ambiarc', 'HideMapLabel', json);
     };
