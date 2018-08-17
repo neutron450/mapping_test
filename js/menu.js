@@ -9,42 +9,25 @@
 		});
 
 		$(document).on("click", "li.list-group-item", function(e){
-
-			//console.log(e);
 			var id = $(this).attr('data-id');
 			var item = $(this).attr('data-itemid');
-
 			console.log(mapStuff[item]);
-
 			adjustMapFocus(e.currentTarget, item, function(){ });
-
 			if ($(this).hasClass('hasImg')) {
-
 				doPoiImage(id);
-
 			} else {
-
 				$('.poi-box').remove();
-
 			}
-
-			//zoomInHandler();
-
-			//$('.active').removeClass('active');
 			$(this).addClass('seen').siblings().removeClass('active');
-
 			hideInactivePoints(false, item);
-
 		});
 
 		$(document).on('click', '.search-btn', function() {
-			//collapseMenus();
 			$('.nav-menu').fadeOut();
 			$('.showpopmap').removeClass('showpopmap');
 			$('.points').addClass('reveal-vert');
 			$('.menu-open').addClass('fade-out');
 			$('.reveal-horz').removeClass('reveal-horz');
-			//$('.search-btn').fadeOut();
 			$('body').append('<div class="click-capture"></div>');
 			isFloorSelectorEnabled = false;
 			var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
@@ -56,24 +39,32 @@
 			$('.showpopmap').removeClass('showpopmap');
 			$('.menu-open').addClass('fade-out');
 			$('.cat-wrap').removeClass('fade-out');
-			//$('.search-btn').fadeOut();
-			//$('body').css({'pointer-events':'auto'});
-			//$('*').css({'pointer-events':'auto'});
-			//$('#gameContainer').css({'pointer-events':'auto'});
 			$('body').append('<div class="click-capture"></div>');
 			isFloorSelectorEnabled = false;
 			var ambiarc = $("#ambiarcIframe")[0].contentWindow.Ambiarc;
+
 			ambiarc.viewFloorSelector('0001');
-			ambiarc.viewFloorSelector('0001');
+			setTimeout(function(){
+				ambiarc.viewFloorSelector('0001');
+			}, 750);
 		});
 
 		$(document).on('click', '.cat-box', function() {
 			$('.reveal-horz').removeClass('reveal-horz');
 			var pos = $(this).closest('div').position();
 			var type = $(this).attr('data-type');
-			//alert(type);
 			$('div.'+type).css({left:pos.left});
 			$('div.'+type).addClass('reveal-horz');
+			$("style:not('#position')").remove();
+			var getStyle = $("style[data-type='"+type+"']");
+			if (getStyle.length < 1) {
+				var style = document.createElement('style');
+				style.id = 'position';
+				style.type = 'text/css';
+				style.setAttribute('data-type', type);
+				style.innerHTML = '.'+type+'{left:'+pos.left+'}';
+				document.getElementsByTagName('head')[0].appendChild(style);
+			}
 		});
 
 		$(document).on('click', '.click-capture', function() {
@@ -95,10 +86,10 @@
 				setTimeout(function(){
 					$('.flyout').animate({width: '0px', opacity: 0}).promise().then(function(){
 						$('.flyout').removeClass('reveal-horz').promise().then(function(){
-							setTimeout(function(){ $('.flyout').removeAttr('style'); }, 750);
+							setTimeout(function(){ $('.flyout').removeAttr('style'); }, 125);
 						});
 					});
-				}, 750);
+				}, 125);
 			}
 		});
 
@@ -108,10 +99,10 @@
 			setTimeout(function(){
 				$('.subfly').animate({width: '0px', opacity: 0}).promise().then(function(){
 					$('.subfly').removeClass('reveal-horz').promise().then(function(){
-						setTimeout(function(){ $('.subfly').removeAttr('style'); }, 750);
+						setTimeout(function(){ $('.subfly').removeAttr('style'); }, 125);
 					});
 				});
-			}, 750);
+			}, 125);
 		});
 
 		$(document).keyup(function(e) {
@@ -247,6 +238,9 @@
 
 		}, 2000);
 
+		/// weird style injection coming from somewhere
+		$("style:not('#position')").remove();
+
 	});
 
 	function loadKeyboard() {
@@ -283,10 +277,6 @@
 				close_speed: 1000,
 				enabled: true,
 				layout: 'en_US',
-				// definimos un trigger al keyboard.
-				// Al hacer click sobre el selector que tenga el id (#) o la clase (.) definida
-				// se ocultara o mostrara el keyboard segun corresponda.
-				//trigger: '#buttom1'
 			});
 			var pWid = $(window).width();
 			var kLeft = parseInt( (pWid - 776) / 2 );
@@ -366,12 +356,9 @@
 		$('.cat-wrap').addClass('fade-out');
 		$('.reveal-horz').removeClass('reveal-horz');
 		$('.reveal-vert').removeClass('reveal-vert');
-		//$('.search-btn').fadeIn();
-
 		if ($('.showpopmap').css('opacity') > 0) {
 			return true;
 		}
-
 		$('body').css({'pointer-events':'none'});
 		$('.click-capture').remove();
 	}
@@ -380,23 +367,23 @@
 		setTimeout(function(){
 			$('.subfly').animate({width: '0px', opacity: 0}).promise().then(function(){
 				$('.subfly').removeClass('reveal-horz').promise().then(function(){
-					setTimeout(function(){ $('.subfly').removeAttr('style'); }, 750);
+					setTimeout(function(){ $('.subfly').removeAttr('style'); }, 1);
 					$('.flyout').animate({width: '0px', opacity: 0}).promise().then(function(){
 						setTimeout(function(){
 							$('.flyout').removeAttr('style');
 							$('.flyout').removeClass('reveal-horz');
-						}, 750);
+						}, 125);
 						$('.nav-menu').animate({width: '0px', opacity: 0}).promise().then(function(){
 							setTimeout(function(){
 								$('.nav-menu').removeAttr('style');
 								$('.nav-menu').removeClass('reveal-horz');
 								resetMenus();
-							}, 750);
+							}, 125);
 						});
 					});
 				});
 			});
-		}, 750);
+		}, 125);
 	}
 
 	function searchFunction () {
