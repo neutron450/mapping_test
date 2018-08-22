@@ -154,8 +154,6 @@
       </ul>
     </div>-->
 
-	<img class="pratt-logo" src="images/Pratt_Logo_Black.png">
-
   </div>
 
   <iframe src="./map.php" id="ambiarcIframe" style="width:100%; height:100%; border:none; top:
@@ -188,6 +186,8 @@
 	<div class="mapouter map-crr ">
 		<iframe width="" height="" frameborder="0" src="" scrolling="no"></iframe>
 	</div>
+
+	<img class="pratt-logo" src="images/Pratt_Logo_Black.png">
 
 </body>
 

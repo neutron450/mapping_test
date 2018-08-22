@@ -49,6 +49,12 @@
 			}, 750);
 		});
 
+		$(document).on('click', '.pratt-logo', function() {
+			//collapseMenus();
+			$('.showpopmap').removeClass('showpopmap');
+			resetMenus();
+		});
+
 		$(document).on('click', '.cat-box', function() {
 			$('.reveal-horz').removeClass('reveal-horz');
 			var pos = $(this).closest('div').position();
