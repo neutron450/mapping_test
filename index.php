@@ -139,7 +139,7 @@
       <a class="floorName" href="#">First Floor</a>
     </li>
 
-    <div id="controls-section" style="pointer-events: auto">
+    <!--<div id="controls-section" style="pointer-events: auto">
       <ul>
         <li class="" onclick="zoomInHandler()">
           <span class="controls-btn ctrl-zoom-in glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -152,7 +152,10 @@
           <span class=" controls-btn ctrl-zoom-out glyphicon glyphicon-minus" onclick="zoomOutHandler()" aria-hidden="true"></span>
         </li>
       </ul>
-    </div>
+    </div>-->
+
+	<img class="pratt-logo" src="images/Pratt_Logo_Black.png">
+
   </div>
 
   <iframe src="./map.php" id="ambiarcIframe" style="width:100%; height:100%; border:none; top:

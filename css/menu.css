@@ -23,6 +23,17 @@ img.search-btn {
     z-index: 900;
 }
 
+img.pratt-logo {
+	position: fixed;
+	right: 20px;
+	bottom: 5%;
+	/*width: 5vw;*/
+	height: 30px;
+	pointer-events: auto;
+	cursor: pointer;
+    z-index: 900;
+}
+
 
 div.nav-menu {
 
@@ -113,7 +124,7 @@ div.flyout, div.subfly {
 	background-color: #fff;
 	height: auto;
 
-	max-height: 50vh;
+	max-height: 100vh;
     /*overflow: scroll;*/
     overflow-y: scroll;
     overflow-x: hidden;
@@ -156,7 +167,7 @@ div.flyout span, div.subfly span {
 	pointer-events: auto;
 	cursor: pointer;
     z-index: 900;
-    padding: 10px 20px;
+    padding: 5px 20px;
 
     color: #000;
     transition: color 0.2s ease;
